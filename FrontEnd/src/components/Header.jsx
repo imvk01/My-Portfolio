@@ -13,11 +13,12 @@ export default function Header() {
   const navLinks = [
     { name: "About", path: "/about" },
     { name: "Projects", path: "/projects" },
+    { name: "Recommendations", path: "/recommendation" },
     { name: "Contact Me", path: "/contact-me" },
   ];
 
   return (
-    <header className="fixed top-0 left-0 w-full bg-slate-100 shadow-sm z-50">
+    <header className="fixed top-0 left-0 w-full bg-slate-100 shadow-md z-50">
       {/* Mobile Navbar */}
       <MobileNavbar isOpen={isOpen} setIsOpen={setIsOpen} />
 
@@ -60,7 +61,7 @@ export default function Header() {
             preview="Vikash_CV_Europass.pdf"
             className="ml-4 bg-blue-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-full font-medium transition-transform hover:scale-105"
           >
-            Curriculum Vitae
+            Download CV
           </a>
         </nav>
       </div>

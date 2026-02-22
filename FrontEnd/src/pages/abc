@@ -1,142 +1,82 @@
-import React from "react";
-import placeholderImage from "./gallery/me.png";
-import { FaCode, FaServer, FaCloud, FaDatabase } from "react-icons/fa";
+import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Menu } from "lucide-react";
+import MobileNavbar from "./MobileNavbar";
+import logo from "./logo/logo.jpg";
+import resumeFile from "./download/Vikash_CV.pdf";
 
-export default function About() {
+export default function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+
+  const navLinks = [
+    { name: "About", path: "/about" },
+    { name: "Projects", path: "/projects" },
+    { name: "Recommendations", path: "/contact-me" },
+    { name: "Contact Me", path: "/contact-me" },
+  ];
+
   return (
-    <div className="min-h-screen w-full bg-gray-50 py-16 px-6 sm:px-10 lg:px-20 lg:mt-[5%]">
-      {/* ===== HEADER SECTION ===== */}
-      <div className="max-w-6xl mx-auto text-center mb-16">
-        <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-6">
-          About <span className="text-indigo-600">Me</span>
-        </h1>
+    <header className="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-md shadow-sm z-50 p-5" >
+      
+      {/* Mobile Sidebar */}
+      <MobileNavbar isOpen={isOpen} setIsOpen={setIsOpen} />
 
-        <p className="text-gray-600 text-lg max-w-3xl mx-auto">
-          I’m{" "}
-          <span className="font-semibold text-indigo-600">Vikash Verma</span>, a
-          passionate{" "}
-          <span className="font-semibold text-gray-900">
-            Full Stack Developer{" "}
-          </span>
-          focused on building scalable, secure, and high-performance web
-          applications using the{" "}
-          <span className="font-bold text-gray-900">MERN stack</span>.
-        </p>
-      </div>
+      {/* Main Navbar */}
+      <div className="relative flex items-center max-w-8xl mx-auto px-4 md:px-10 py-3">
 
-      {/* ===== PROFILE + INTRO ===== */}
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center mb-20">
-        <div className="flex justify-center">
-          <img
-            src={placeholderImage}
-            alt="Vikash Verma"
-            className="w-64 h-64 object-cover rounded-2xl shadow-xl border-4 border-indigo-100"
-          />
+        {/* LEFT SIDE - Desktop Navigation */}
+        <nav className="hidden md:flex items-center gap-8 font-semibold text-gray-800">
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              to={link.path}
+              className={`uppercase font-serif transition-all duration-200 hover:text-indigo-500 ${
+                location.pathname === link.path
+                  ? "text-indigo-600"
+                  : ""
+              }`}
+            >
+              {link.name}
+            </Link>
+          ))}
+        </nav>
+
+        {/* CENTER - Logo */}
+        <div className="absolute left-1/2 transform -translate-x-1/2">
+          <Link to="/" className="flex items-center">
+            <img
+              src={logo}
+              alt="Vikash Verma Logo"
+              className="w-16 h-16 md:w-20 md:h-20 object-scale-down rounded-full border border-gray-300 shadow-sm hover:scale-105 transition-transform duration-300"
+            />
+          </Link>
         </div>
 
-        <div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">
-            <span className="text-indigo-600">Full Stack Developer</span> | MERN
-            Specialist
-          </h2>
-
-          <p className="text-gray-600 mb-4 leading-relaxed">
-            I specialize in developing end-to-end web applications using
-            React.js, Node.js, Express.js and MongoDB. My focus is on writing
-            clean, maintainable code and creating intuitive user experiences.
-          </p>
-
-          <p className="text-gray-600 mb-4 leading-relaxed">
-            I have hands-on experience in building scalable REST APIs,
-            implementing JWT authentication, integrating Stripe & PayPal
-            payments, and deploying applications using AWS EC2, Nginx, and PM2.
-          </p>
-
-          <p className="text-gray-600 leading-relaxed">
-            I enjoy solving complex problems and transforming ideas into
-            efficient, secure, and scalable digital solutions.
-          </p>
+        {/* RIGHT SIDE - Download CV */}
+        <div className="hidden md:flex ml-auto">
+          <a
+            href={resumeFile}
+            download="Vikash_CV.pdf"
+            className="bg-gradient-to-r from-blue-600 to-indigo-600 
+                       text-white px-5 py-2 rounded-full 
+                       font-medium shadow-md 
+                       hover:shadow-lg hover:scale-105 
+                       transition-all duration-300"
+          >
+            Download CV
+          </a>
         </div>
-      </div>
 
-      {/* ===== TECHNICAL EXPERTISE ===== */}
-      <div className="max-w-6xl mx-auto mb-20">
-        <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-          Technical Expertise
-        </h2>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition">
-            <FaCode className="text-indigo-600 text-3xl mb-4" />
-            <h3 className="font-semibold text-lg mb-2">Frontend Development</h3>
-            <p className="text-gray-600 text-sm">
-              React.js, Redux, Tailwind CSS, Responsive UI, React Native
-            </p>
-          </div>
-
-          <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition">
-            <FaServer className="text-indigo-600 text-3xl mb-4" />
-            <h3 className="font-semibold text-lg mb-2">Backend Development</h3>
-            <p className="text-gray-600 text-sm">
-              Node.js, Express.js, REST APIs, JWT Authentication
-            </p>
-          </div>
-
-          <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition">
-            <FaDatabase className="text-indigo-600 text-3xl mb-4" />
-            <h3 className="font-semibold text-lg mb-2">Database Management</h3>
-            <p className="text-gray-600 text-sm">
-              MongoDB, Schema Design, Optimization, GridFS
-            </p>
-          </div>
-
-          <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition">
-            <FaCloud className="text-indigo-600 text-3xl mb-4" />
-            <h3 className="font-semibold text-lg mb-2">Cloud & Deployment</h3>
-            <p className="text-gray-600 text-sm">
-              AWS EC2, Nginx, PM2, Firebase, Production Deployment
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* ===== EXPERIENCE SECTION ===== */}
-      <div className="max-w-6xl mx-auto mb-20">
-        <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-          Experience
-        </h2>
-
-        <div className="bg-white p-8 rounded-2xl shadow-lg">
-          <h3 className="text-xl font-semibold text-indigo-600 mb-2">
-            Full Stack Developer Intern
-          </h3>
-          <p className="text-gray-500 mb-4">UpGrad Campus</p>
-
-          <ul className="list-disc pl-5 text-gray-600 space-y-2">
-            <li>Developed scalable REST APIs using Node.js & Express.</li>
-            <li>Built responsive UI components using React & Tailwind CSS.</li>
-            <li>Integrated third-party services and payment gateways.</li>
-            <li>Maintained code quality through structured reviews.</li>
-          </ul>
-        </div>
-      </div>
-
-      {/* ===== CALL TO ACTION ===== */}
-      <div className="max-w-4xl mx-auto text-center bg-indigo-600 text-white py-12 px-8 rounded-3xl shadow-xl">
-        <h2 className="text-3xl font-bold mb-4">
-          Let’s Build Something Great Together
-        </h2>
-        <p className="mb-6">
-          I’m always open to exciting opportunities, collaborations, and
-          innovative projects.
-        </p>
-        <a
-          href="/contact-me"
-          className="bg-white text-indigo-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition"
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden ml-auto text-gray-800"
+          onClick={() => setIsOpen(true)}
         >
-          Contact Me
-        </a>
+          <Menu size={28} />
+        </button>
+
       </div>
-    </div>
+    </header>
   );
 }

@@ -4,8 +4,7 @@ import { FaCode, FaServer, FaCloud, FaDatabase, FaGraduationCap, FaLanguage } fr
 
 export default function About() {
   return (
-    <div className="min-h-screen w-full bg-gray-50 py-16 px-6 sm:px-10 lg:px-20 lg:mt-[5%]">
-      
+    <div className="min-h-screen w-full bg-gray-50 py-16 px-6 sm:px-10 lg:px-20 lg:mt-[5%] mt-[20%]">
       {/* ===== HEADER SECTION ===== */}
       <div className="max-w-6xl mx-auto text-center mb-16">
         <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-6">

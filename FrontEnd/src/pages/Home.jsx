@@ -97,7 +97,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="w-full min-h-screen lg:pt-[6%] ">
+    <div className="w-full min-h-screen mt-[30%] lg:mt-24">
       <div className="bg-gray-100 rounded-b-[20%]">
         {/* ===== HERO SECTION ===== */}
         <div className="bg-gradient-to-t from-blue-400 to-blue-50 flex flex-col md:flex-row items-center justify-between p-6 sm:p-10 lg:p-12 max-w-8xl mx-auto gap-8 md:gap-16">
@@ -172,7 +172,7 @@ export default function Home() {
         </div>
 
         {/* ===== SKILLS SECTION ===== */}
-        <div className="py-16 px-6 sm:px-10 lg:px-16 bg-gray-100    mx-auto rounded-b-[20%] border-b-4 border-indigo-600">
+        <div className="py-16 px-6 sm:px-10 lg:px-16 bg-gray-100  mx-auto rounded-b-[12%] border-b-4 lg:rounded-b-[20%] border-indigo-600">
           <div className="max-w-6xl mx-auto">
             <h3 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-12 text-center text-gray-900">
               My <span className="text-indigo-600">Skills</span> & Expertise
@@ -227,7 +227,7 @@ export default function Home() {
       </div>
 
       {/* ===== VIDEO DEMO / INTRO ===== */}
-      <div className="py-16 px-6 sm:px-10 lg:px-16 max-w-7xl mx-auto">
+      <div className="py-16 px-6 sm:px-10 lg:px-16 max-w-8xl mx-auto">
         <div className="flex justify-center">
           <video
             src={demoVideo}

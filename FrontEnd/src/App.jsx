@@ -8,6 +8,7 @@ const Home = lazy(() => import('./pages/Home'));
 const About = lazy(() => import('./pages/About'));
 const Location = lazy(() => import('./pages/Location'));
 const Contact = lazy(() => import('./pages/Contact'));
+const Recommendation = lazy(() => import('./pages/recommendation'))
 
 
 export default function App() {
@@ -22,6 +23,7 @@ export default function App() {
             <Route path="/about" element={<About />} />
             <Route path="/location" element={<Location />} />
             <Route path="/contact-me" element={<Contact />} />
+            <Route path="/recommendation" element={<Recommendation />} />
           </Routes>
         </Suspense>
       </BrowserRouter>
