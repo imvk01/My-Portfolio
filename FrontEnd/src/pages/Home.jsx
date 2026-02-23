@@ -1,7 +1,13 @@
 import React from "react";
-import placeholderImage from "./gallery/me.jpg";
+import placeholderImage from "./gallery/abc.png";
 import { useNavigate } from "react-router-dom";
-import { FaArrowRight, FaEnvelope, FaLinkedin, FaGithub, FaUser } from "react-icons/fa";
+import {
+  FaArrowRight,
+  FaEnvelope,
+  FaLinkedin,
+  FaGithub,
+  FaUser,
+} from "react-icons/fa";
 import demoVideo from "./gallery/coding.mp4"; // <-- your video file
 
 export default function Home() {
@@ -100,7 +106,7 @@ export default function Home() {
     <div className="w-full min-h-screen mt-[30%] lg:mt-24">
       <div className="bg-gray-100 rounded-b-[20%]">
         {/* ===== HERO SECTION ===== */}
-        <div className="bg-gradient-to-t from-blue-400 to-blue-50 flex flex-col md:flex-row items-center justify-between p-6 sm:p-10 lg:p-12 max-w-8xl mx-auto gap-8 md:gap-16">
+        <div className="bg-gradient-to-t from-blue-600 to-white flex flex-col md:flex-row items-center justify-between p-6 sm:p-10 lg:p-12 max-w-8xl mx-auto gap-8 md:gap-16 rounded-b-[18%]">
           <div className="flex-1 text-center md:text-left">
             <h6 className="font-semibold text-indigo-600 text-sm sm:text-base uppercase tracking-wide">
               | Welcome to My Portfolio
@@ -162,10 +168,10 @@ export default function Home() {
               alt="Vikash Verma"
               className="w-48 sm:w-52 md:w-64 lg:w-72 h-auto rounded-full shadow-2xl"
             />
-            <span className="mt-4 text-xl sm:text-xl lg:text-3xl font-semibold text-gray-700 font-serif">
+            <span className="mt-4 text-xl sm:text-xl lg:text-3xl font-semibold text-slate-100 font-serif">
               VIKASH VERMA
             </span>
-            <span className="text-sm sm:text-base text-gray-500 mt-1 font-light">
+            <span className="text-sm sm:text-base text-white mt-1 font-light">
               Full Stack Developer
             </span>
           </div>
@@ -184,7 +190,7 @@ export default function Home() {
                   key={index}
                   className="group relative p-6 bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transform transition duration-500 hover:-translate-y-2"
                 >
-                  <div className="absolute -top-6 -right-6 w-24 h-24 rounded-full bg-gradient-to-br from-indigo-200 to-blue-200 opacity-20 pointer-events-none"></div>
+                  <div className="absolute -top-6 -right-6 w-24 h-24 rounded-full bg-gradient-to-br from-indigo-100 to-blue-600 opacity-20 pointer-events-none"></div>
                   <span className="text-4xl flex items-center justify-center border-2 border-indigo-600 rounded-full h-16 w-16 mb-4 transition-transform duration-300 group-hover:scale-110">
                     {item.icon}
                   </span>
@@ -281,11 +287,11 @@ export default function Home() {
               <FaArrowRight className="mr-2" /> Contact Me
             </button>
             <button
-                onClick={() => navigate("/about")}
-                className="bg-orange-500 px-6 py-3 rounded-full text-white font-semibold hover:bg-orange-400 shadow-md transition transform hover:-translate-y-1 hover:scale-105 flex items-center justify-center"
-              >
-                <FaUser className="mr-2" /> About Me
-              </button>
+              onClick={() => navigate("/about")}
+              className="bg-orange-500 px-6 py-3 rounded-full text-white font-semibold hover:bg-orange-400 shadow-md transition transform hover:-translate-y-1 hover:scale-105 flex items-center justify-center"
+            >
+              <FaUser className="mr-2" /> About Me
+            </button>
             <button
               onClick={handleChatWithUs}
               className="bg-green-600 px-6 py-3 rounded-full text-white font-semibold hover:bg-green-500 shadow-md transition transform hover:-translate-y-1 hover:scale-105 flex items-center justify-center"

@@ -6,7 +6,7 @@ import ScrollToTop from './components/ScrollToTop';
 // Lazy loading pages
 const Home = lazy(() => import('./pages/Home'));
 const About = lazy(() => import('./pages/About'));
-const Location = lazy(() => import('./pages/Location'));
+const Project = lazy(() => import('./pages/Projects'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Recommendation = lazy(() => import('./pages/recommendation'))
 
@@ -21,9 +21,10 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
-            <Route path="/location" element={<Location />} />
+            <Route path="/projects" element={<Project />} />
             <Route path="/contact-me" element={<Contact />} />
             <Route path="/recommendation" element={<Recommendation />} />
+            
           </Routes>
         </Suspense>
       </BrowserRouter>

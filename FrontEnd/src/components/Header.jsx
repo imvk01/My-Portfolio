@@ -18,7 +18,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 w-full bg-slate-100 shadow-md z-50">
+    <header className="fixed top-0 left-0 w-full bg-slate-100 shadow-md z-50 backdrop-blur-2xl">
       {/* Mobile Navbar */}
       <MobileNavbar isOpen={isOpen} setIsOpen={setIsOpen} />
 
@@ -29,7 +29,7 @@ export default function Header() {
           <img
             src={logo}
             alt="Vikash Verma Logo"
-            className="w-24 h-24 object-scale-down rounded-full border border-gray-300"
+            className="w-24 h-24 object-scale-down rounded-full border border-gray-300 shadow-xl"
           />
         </Link>
 
