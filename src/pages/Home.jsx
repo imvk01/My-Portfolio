@@ -62,34 +62,34 @@ export default function Home() {
       description:
         "A full-stack job portal with search, filters, resume uploads, referrals, and premium payment options.",
       tech: "React.js, Node.js, Express.js, MongoDB, Stripe, PayPal, Tailwind CSS",
-      link: "#",
+      link: "https://www.carrerconnect.com/",
     },
     {
       name: "NeuroRevive 360",
       description:
         "Health & wellness platform for neuroscience-based rehabilitation with appointments and user management.",
       tech: "React.js, Node.js, Express.js, MongoDB, Tailwind CSS, Firebase",
-      link: "#",
+      link: "https://neuro-revive360.vercel.app/",
     },
     {
       name: "Som Motor Records",
       description:
         "Real-time vehicle maintenance tracking system with authentication, notifications, and dashboards.",
       tech: "React.js, Node.js, Socket.io, MongoDB, Tailwind CSS",
-      link: "#",
+      link: "https://som-moter.netlify.app/",
     },
     {
       name: "TVA Group",
       description:
         "Internal management platform with team collaboration, task tracking, and real-time notifications.",
       tech: "React.js, Node.js, Express.js, MongoDB, Tailwind CSS, Socket.io",
-      link: "#",
+      link: "https://tva-group.onrender.com/",
     },
   ];
 
   const testimonials = [
     {
-      name: "Abhimanyu",
+      name: "Abhimanyu Sharma",
       role: "Internship Mentor",
       feedback:
         "Vikash is a dedicated developer with excellent MERN stack skills.",
