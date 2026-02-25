@@ -58,7 +58,7 @@ export default function Header() {
         {/* Download Resume Button */}
         <a
           href={resumeFile}
-          download="Vikash_CV_Europass.pdf"
+          download="Vikash_Resume.pdf"
           className="ml-4 bg-blue-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-full font-medium transition-transform hover:scale-105"
         >
           Download CV
