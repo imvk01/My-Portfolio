@@ -9,6 +9,12 @@ import {
   FaUser,
 } from "react-icons/fa";
 import demoVideo from "./gallery/coding.mp4"; // <-- your video file
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -75,6 +81,7 @@ export default function Home() {
       name: "Som Motor Records",
       description:
         "Real-time vehicle maintenance tracking system with authentication, notifications, and dashboards.",
+      note: "Due to Privacy, the Backend is not Deployed",
       tech: "React.js, Node.js, Socket.io, MongoDB, Tailwind CSS",
       link: "https://som-moter.netlify.app/",
     },
@@ -207,7 +214,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* ===== FEATURED PROJECTS ===== */}
+      {/* ===== FEATURED PROJECTS =====
       <div className="py-5 px-6 sm:px-10 lg:px-16 max-w-7xl mx-auto">
         <h3 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-12 text-center text-gray-900 mt-5">
           Featured <span className="text-indigo-600">Projects</span>
@@ -230,6 +237,66 @@ export default function Home() {
             </div>
           ))}
         </div>
+      </div> */}
+
+      {/* ===== FEATURED PROJECTS ===== */}
+      <div className="py-16 px-6 sm:px-10 lg:px-16 max-w-7xl mx-auto">
+        <h3 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-12 text-center text-gray-900">
+          Featured <span className="text-indigo-600">Projects</span>
+        </h3>
+
+        <Swiper
+          modules={[Navigation, Pagination]}
+          spaceBetween={30}
+          slidesPerView={1}
+          navigation
+          pagination={{ clickable: true }}
+          breakpoints={{
+            640: { slidesPerView: 1 },
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}
+          className="pb-12"
+        >
+          {projects.map((proj, idx) => (
+            <SwiperSlide key={idx} className="!h-auto flex">
+              <div
+                className="p-6 bg-slate-100 rounded-2xl shadow-lg
+        hover:shadow-2xl transform transition
+        hover:-translate-y-2 w-full flex flex-col"
+              >
+                {/* Content Area */}
+                <div className="flex-grow">
+                  <h4 className="text-xl font-semibold mb-2">{proj.name}</h4>
+
+                  {/* Fixed height description area */}
+                  <p className="text-gray-600 mb-2 min-h-[60px]">
+                    {proj.description}
+                  </p>
+
+                  {/* Reserve space even if note doesn't exist */}
+                  <p className="text-sm text-red-400 mb-2 min-h-[24px]">
+                    {proj.note || ""}
+                  </p>
+
+                  <p className="text-gray-500 text-sm mb-4 min-h-[40px]">
+                    {proj.tech}
+                  </p>
+                </div>
+
+                {/* Button stays at bottom */}
+                <a
+                  href={proj.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-indigo-600 font-semibold hover:underline flex items-center mt-auto"
+                >
+                  View Project <FaArrowRight className="ml-1" />
+                </a>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
 
       {/* ===== VIDEO DEMO / INTRO ===== */}

@@ -39,6 +39,7 @@ export default function Projects() {
       name: "Som Motor Records",
       description:
         "Real-time vehicle maintenance tracking system with authentication and notification system.",
+      note: "Due to Privacy of Client, the Backend is not Deployed",
       tech: ["React", "Node.js", "MongoDB", "Socket.io"],
       live: "https://som-moter.netlify.app/",
       github: null,
@@ -118,7 +119,11 @@ export default function Projects() {
                 {project.name}
               </h2>
 
-              <p className="text-gray-600 mb-5">{project.description}</p>
+              <p className="text-gray-600 mb-2">{project.description}</p>
+
+              {project.note && (
+                <p className="text-sm text-red-400 mb-5">{project.note}</p>
+              )}
 
               <div className="flex flex-wrap gap-2 mb-6">
                 {project.tech.map((tech, i) => (
