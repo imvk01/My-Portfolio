@@ -54,6 +54,15 @@ export default function Projects() {
       privateRepo: false,
     },
     {
+      name: "IMDb Movies Rating",
+      description:
+        "A site that use TMDb API to provides the Popular, Top Rated and Upcoming movies with their ratings and production industry details.",
+      tech: ["React", "Express", "MongoDB", "TMDb API"],
+      live: "https://imdb-vikashverma.netlify.app/",
+      github: "https://github.com/imvk01/movie-rating-imdb-clone",
+      privateRepo: false,
+    },
+    {
       name: "Amazon Clone",
       description:
         "Amazon clone for learning the basic skills of Web Development.",

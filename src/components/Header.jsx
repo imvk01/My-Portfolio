@@ -47,7 +47,7 @@ export default function Header() {
           <Link
             key={link.name}
             to={link.path}
-            className={`transition-transform hover:scale-105 uppercase font-serif ${
+            className={`transition-transform hover:scale-105 uppercase font-mono ${
               location.pathname === link.path ? "text-indigo-500" : ""
             }`}
           >
@@ -59,7 +59,7 @@ export default function Header() {
         <a
           href={resumeFile}
           download="Vikash_Resume.pdf"
-          className="ml-4 bg-blue-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-full font-medium transition-transform hover:scale-105"
+          className="ml-4 bg-blue-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-full transition-transform hover:scale-105 font-light"
         >
           Download CV
         </a>
