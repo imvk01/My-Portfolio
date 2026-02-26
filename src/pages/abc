@@ -1,156 +1,84 @@
-import React from "react";
-import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
+import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Menu, Sun, Moon } from "lucide-react";
+import MobileNavbar from "./MobileNavbar";
+import logo from "./logo/logo.jpg";
+import resumeFile from "./download/Vikash_CV.pdf";
+import { useDarkMode } from "../DarkModeContext"; // Import your context
 
-export default function Projects() {
-  const projects = [
-    {
-      name: "CareerConnect",
-      description:
-        "Full-stack job portal with resume uploads, referral system, premium payment plans, and secure authentication.",
-      tech: [
-        "React",
-        "Node.js",
-        "Express",
-        "MongoDB",
-        "PayPal Autopay",
-        "Tailwind",
-      ],
-      live: "https://www.carrerconnect.com/",
-      github: "https://github.com/imvk01/CareerConnect",
-    },
-    {
-      name: "NeuroRevive 360",
-      description:
-        "Health & rehabilitation platform with appointment booking, user dashboard, and secure backend.",
-      tech: ["React", "Node.js", "MongoDB", "Firebase", "Tailwind"],
-      live: "https://neuro-revive360.vercel.app",
-      github: "https://github.com/imvk01/physioAmit_website",
-    },
-    {
-      name: "Som Motor Records",
-      description:
-        "Real-time vehicle maintenance tracking system with authentication and notification system.",
-      tech: ["React", "Node.js", "MongoDB", "Socket.io"],
-      live: "https://som-moter.netlify.app/",
-      github: "https://github.com/imvk01/som-moter",
-    },
-    {
-      name: "TVA Group",
-      description:
-        "Internal team collaboration platform with real-time updates and task management.",
-      tech: ["React", "Express", "MongoDB", "Socket.io"],
-      live: "https://tva-group.onrender.com",
-      github: "https://github.com/imvk01/Real-Estate-Marketplace-MERN",
-    },
-    {
-        name: "Amazon Clone",
-        description:
-          "Amazon clone for learing the basic skills of Web Development.",
-        tech: ["React","Express","Node","MongoDB"],
-        live: "https://amazon-vikashverma.netlify.app/",
-        github: "https://github.com/imvk01/Amazon-vikash",
-      },
-      {
-        name: "Tinder Clone",
-        description:
-          "Tinder clone for learing the basic skills of Web Development.",
-        tech: ["React","Express","Node","MongoDB"],
-        live: "https://tinder-vikashverma.netlify.app/",
-        github: "https://github.com/imvk01/Tinder-clone",
-      },
-      {
-        name: "Scribbler-Posts",
-        description:
-          "Tinder clone for learing the basic skills of Web Development.",
-        tech: ["React","Express","Node","MongoDB"],
-        live: "https://scribbler-posts.netlify.app/",
-        github: "https://github.com/imvk01/Scribbler-Project",
-      },
+export default function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  const { darkMode, toggleDarkMode } = useDarkMode(); // Use context
+
+  const navLinks = [
+    { name: "About", path: "/about" },
+    { name: "Projects", path: "/projects" },
+    { name: "Recommendations", path: "/recommendation" },
+    { name: "Contact Me", path: "/contact-me" },
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 py-20 px-6 lg:px-16">
-      
-      {/* ===== HERO ===== */}
-      <div className="text-center max-w-4xl mx-auto mb-16">
-        <h1 className="text-4xl lg:text-5xl font-extrabold text-gray-900 mb-6">
-          My <span className="text-indigo-600">Projects</span>
-        </h1>
-        <p className="text-gray-600 text-lg">
-          A collection of real-world full-stack applications built with MERN stack,
-          secure authentication, payment integration, and cloud deployment.
-        </p>
-      </div>
+    <header className="fixed top-0 left-0 w-full bg-slate-100 dark:bg-gray-900 shadow-md z-50 backdrop-blur-2xl transition-colors duration-300">
+      {/* Mobile Navbar */}
+      <MobileNavbar isOpen={isOpen} setIsOpen={setIsOpen} />
 
-      {/* ===== PROJECT GRID ===== */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 max-w-7xl mx-auto">
-        {projects.map((project, index) => (
-          <div
-            key={index}
-            className="bg-white rounded-3xl shadow-lg p-8 border border-gray-100 hover:shadow-2xl transition duration-500 hover:-translate-y-3 relative overflow-hidden"
+      {/* Header Main */}
+      <div className="flex justify-between items-center max-w-7xl mx-auto p-3 md:px-10">
+        {/* Logo */}
+        <Link to="/" className="flex items-center">
+          <img
+            src={logo}
+            alt="Vikash Verma Logo"
+            className="w-24 h-24 object-scale-down rounded-full border border-gray-300 dark:border-gray-600 shadow-xl transition-colors duration-300"
+          />
+        </Link>
+
+        {/* Mobile / Medium Menu Button */}
+        <div className="flex items-center gap-4 lg:hidden">
+          <button
+            className="text-gray-800 dark:text-gray-200"
+            onClick={() => setIsOpen(true)}
           >
-            {/* Glow Effect */}
-            <div className="absolute -top-10 -right-10 w-40 h-40 bg-indigo-200 opacity-30 rounded-full blur-3xl"></div>
+            <Menu size={28} />
+          </button>
+        </div>
 
-            <h2 className="text-2xl font-bold text-gray-800 mb-3">
-              {project.name}
-            </h2>
+        {/* Desktop Navigation */}
+        <nav className="hidden lg:flex items-center gap-4 font-semibold text-gray-800 dark:text-gray-200 transition-colors duration-300">
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              to={link.path}
+              className={`transition-transform hover:scale-105 uppercase font-mono ${
+                location.pathname === link.path
+                  ? "text-indigo-500 dark:text-indigo-400"
+                  : ""
+              }`}
+            >
+              {link.name}
+            </Link>
+          ))}
 
-            <p className="text-gray-600 mb-5">
-              {project.description}
-            </p>
+          {/* Download CV + Dark Mode Toggle */}
+          <div className="flex items-center gap-2 ml-4">
+            <a
+              href={resumeFile}
+              download="Vikash_Resume.pdf"
+              className="bg-blue-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-full transition-transform hover:scale-105 font-light"
+            >
+              Download CV
+            </a>
 
-            {/* Tech Stack */}
-            <div className="flex flex-wrap gap-2 mb-6">
-              {project.tech.map((tech, i) => (
-                <span
-                  key={i}
-                  className="bg-indigo-100 text-indigo-600 text-xs font-semibold px-3 py-1 rounded-full"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-
-            {/* Buttons */}
-            <div className="flex gap-4">
-              <a
-                href={project.live}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 bg-indigo-600 text-white px-5 py-2 rounded-full hover:bg-indigo-500 transition shadow-md"
-              >
-                Live Demo <FaExternalLinkAlt size={14} />
-              </a>
-
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 border border-gray-300 px-5 py-2 rounded-full hover:bg-gray-100 transition"
-              >
-                GitHub <FaGithub />
-              </a>
-            </div>
+            <button
+              onClick={toggleDarkMode} // Use context toggle
+              className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-black dark:text-white transition-colors duration-300"
+            >
+              {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
           </div>
-        ))}
+        </nav>
       </div>
-
-      {/* ===== CALL TO ACTION ===== */}
-      <div className="text-center mt-20">
-        <h3 className="text-3xl font-bold text-gray-900 mb-4">
-          Want to work together?
-        </h3>
-        <p className="text-gray-600 mb-6">
-          Let’s build scalable and modern applications.
-        </p>
-        <a
-          href="/contact-me"
-          className="bg-indigo-600 text-white px-8 py-3 rounded-full hover:bg-indigo-500 transition shadow-lg"
-        >
-          Contact Me
-        </a>
-      </div>
-    </div>
+    </header>
   );
 }

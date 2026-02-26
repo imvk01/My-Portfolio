@@ -11,24 +11,19 @@ const Project = lazy(() => import("./pages/Projects"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Recommendation = lazy(() => import("./pages/recommendation"));
 
-// PageLoader component
 function PageLoader({ children }) {
   const location = useLocation();
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    // Show loader every time route changes
     setLoading(true);
-
-    // small delay for animation effect
     const timer = setTimeout(() => setLoading(false), 600);
-
     return () => clearTimeout(timer);
   }, [location]);
 
   if (loading) {
     return (
-      <div className="fixed inset-0 flex justify-center items-center bg-white z-50">
+      <div className="fixed inset-0 flex justify-center items-center bg-white dark:bg-gray-900 z-50 transition-colors duration-300">
         <PropagateLoader color="#8b5cf6" size={20} />
       </div>
     );
@@ -38,16 +33,28 @@ function PageLoader({ children }) {
 }
 
 export default function App() {
+  const [isDark, setIsDark] = useState(false);
+
+  // Apply dark mode class to <html>
+  useEffect(() => {
+    const root = window.document.documentElement;
+    if (isDark) root.classList.add("dark");
+    else root.classList.remove("dark");
+  }, [isDark]);
+
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-custom-background dark:bg-custom-background-dark transition-colors duration-300 text-black dark:text-white">
       <BrowserRouter>
         <ScrollToTop />
-        <Header />
+        <Header
+          isDark={isDark}
+          toggleDark={() => setIsDark(!isDark)}
+        />
 
         <PageLoader>
           <Suspense
             fallback={
-              <div className="fixed inset-0 flex justify-center items-center bg-white z-50">
+              <div className="fixed inset-0 flex justify-center items-center bg-white dark:bg-gray-900 z-50 transition-colors duration-300">
                 <PropagateLoader color="#36d7b7" size={20} />
               </div>
             }
