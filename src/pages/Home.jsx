@@ -117,7 +117,7 @@ export default function Home() {
 
           <div className="bg-gray-100 dark:bg-gray-900"> 
  {/* ===== HERO SECTION ===== */}
- <div className="bg-gradient-to-t from-blue-600 dark:from-gray-900 to-white dark:to-gray-800 flex flex-col md:flex-row items-center justify-between p-6 sm:p-10 lg:p-12 max-w-8xl mx-auto gap-8 md:gap-16 rounded-b-[18%] transition-colors duration-300">
+ <div className="bg-gradient-to-t from-blue-600 dark:from-gray-800 to-white dark:to-gray-800 flex flex-col md:flex-row items-center justify-between p-6 sm:p-10 lg:p-12 max-w-8xl mx-auto gap-8 md:gap-16 rounded-b-[18%] transition-colors duration-300">
             {/* Text Section */}
             <div className="flex-1 text-center md:text-left">
               <h6 className="font-semibold text-indigo-600 dark:text-indigo-400 text-sm sm:text-base uppercase tracking-wide">
