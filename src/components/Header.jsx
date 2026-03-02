@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, Sun, Moon } from "lucide-react";
 import MobileNavbar from "./MobileNavbar";
 import logo from "./logo/logo.jpg";
-import resumeFile from "./download/Vikash_CV.pdf";
+import resumeFile from "./download/Vikash-CV.pdf";
 import { useDarkMode } from "../DarkModeContext"; // Import your context
 
 export default function Header() {
