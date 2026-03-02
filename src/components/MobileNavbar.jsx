@@ -1,7 +1,7 @@
 import React from "react";
 import { X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import resumeFile from "./download/Vikash_CV.pdf";
+import resumeFile from "./download/Vikash-CV.pdf";
 import { useDarkMode } from "../DarkModeContext"; // import context
 
 function MobileNavbar({ isOpen, setIsOpen }) {
