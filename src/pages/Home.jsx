@@ -116,7 +116,7 @@ export default function Home() {
         <div className="dark:bg-gray-900 rounded-b-[20%]">
           <div className="bg-gray-100 dark:bg-gray-900">
             {/* ===== HERO SECTION ===== */}
-            <div className="bg-gradient-to-t from-blue-600 to-white dark:from-gray-800  dark:to-gray-800 flex flex-col md:flex-row items-center justify-between p-6 sm:p-10 lg:p-12 max-w-8xl mx-auto gap-8 md:gap-16 rounded-b-[18%] transition-colors duration-300">
+            <div className="bg-gradient-to-t from-blue-600 to-white dark:from-gray-800  dark:to-gray-800 border-b-4  dark:border-gray-600 flex flex-col md:flex-row items-center justify-between p-6 sm:p-10 lg:p-12 max-w-8xl mx-auto gap-8 md:gap-16 rounded-b-[18%] transition-colors duration-300">
               {/* Text Section */}
               <div className="flex-1 text-center md:text-left">
                 <h6 className="font-semibold text-indigo-600 dark:text-indigo-400 text-sm sm:text-base uppercase tracking-wide">
@@ -289,7 +289,7 @@ export default function Home() {
           </div>
 
           {/* ===== TESTIMONIALS ===== */}
-          <div className="py-16 px-6 sm:px-10 lg:px-16 max-w-5xl mx-auto">
+          <div className="py-16 px-6 sm:px-10 lg:px-16 max-w-8xl mx-auto rounded-t-[20%] border-t-4 border-indigo-600">
             <h3 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-12 text-center text-gray-900 dark:text-white">
               What People Say
             </h3>
@@ -314,7 +314,7 @@ export default function Home() {
           </div>
 
           {/* ===== CTA ===== */}
-          <div className="py-16 px-6 sm:px-10 lg:px-16 bg-gradient-to-b from-blue-500 to-gray-300 dark:from-gray-800 dark:to-gray-800 rounded-t-[20%] border-t-4  dark:border-indigo-600 text-center text-white shadow-md">
+          <div className="py-16 px-6 sm:px-10 lg:px-16 bg-gradient-to-b from-blue-500 to-gray-300 dark:from-gray-800 dark:to-gray-800 rounded-t-[20%] border-t-4  dark:border-gray-600 text-center text-white shadow-md">
             <h3 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-6">
               Ready to Collaborate?
             </h3>
@@ -344,7 +344,7 @@ export default function Home() {
           </div>
 
           {/* ===== FOOTER ===== */}
-          <div className="py-6 px-4 sm:px-6 lg:px-12  dark:bg-gray-900 text-center">
+          <div className="py-6 px-4 sm:px-6 lg:px-12  dark:bg-gray-900 text-center max-w-8xl mx-auto">
             <p className="text-black dark:text-white font-semibold">
               © 2026 Vikash Verma. All rights reserved.
             </p>

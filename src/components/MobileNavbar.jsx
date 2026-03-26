@@ -36,10 +36,10 @@ function MobileNavbar({ isOpen, setIsOpen }) {
           className={`flex justify-between items-center p-5 rounded-tr-3xl ${
             darkMode
               ? "bg-gradient-to-r from-gray-700 to-gray-800 text-white"
-              : "bg-gradient-to-r from-indigo-500 to-purple-500 text-white"
+              : " text-white bg-gradient-to-r from-blue-600 to-indigo-600 "
           }`}
         >
-          <h2 className="text-lg font-semibold tracking-wide">Welcome to My Portfolio</h2>
+          <h2 className="text-lg font-semibold tracking-wide">Welcome to VK Techs</h2>
           <button
             onClick={() => setIsOpen(false)}
             className="p-2 rounded-full hover:bg-white/20 transition"
