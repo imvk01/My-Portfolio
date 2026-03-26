@@ -112,118 +112,116 @@ export default function Home() {
 
   return (
     <PageWrapper>
-      <div className="w-full min-h-screen mt-[35%] lg:mt-[7%] md:mt-[16%]">
+      <div className="w-full min-h-screen mt-[26%] lg:mt-[7%] md:mt-[13%]">
         <div className="dark:bg-gray-900 rounded-b-[20%]">
+          <div className="bg-gray-100 dark:bg-gray-900">
+            {/* ===== HERO SECTION ===== */}
+            <div className="bg-gradient-to-t from-blue-600 to-white dark:from-gray-800  dark:to-gray-800 flex flex-col md:flex-row items-center justify-between p-6 sm:p-10 lg:p-12 max-w-8xl mx-auto gap-8 md:gap-16 rounded-b-[18%] transition-colors duration-300">
+              {/* Text Section */}
+              <div className="flex-1 text-center md:text-left">
+                <h6 className="font-semibold text-indigo-600 dark:text-indigo-400 text-sm sm:text-base uppercase tracking-wide">
+                  | Welcome to VK Techs
+                </h6>
+                <h2 className="text-gray-900 dark:text-white font-extrabold text-2xl sm:text-3xl lg:text-4xl mt-3 mb-4 leading-snug">
+                  Building Modern & Scalable <br className="hidden sm:block" />{" "}
+                  Web & Mobile Experiences
+                </h2>
+                <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
+                  I'm a passionate{" "}
+                  <span className="text-indigo-600 dark:text-indigo-400 font-semibold">
+                    Full Stack Developer
+                  </span>{" "}
+                  specializing in MERN stack (MongoDB, Express.js, React.js,
+                  Node.js), React Native, Logo Designing, and use of AI Tools. I
+                  create high-performance, responsive applications with clean
+                  UI/UX, secure backend APIs, authentication, payment
+                  integrations, and cloud deployment.
+                </p>
+                <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
+                  My work focuses on turning complex problems into intuitive
+                  digital solutions. Whether it's building scalable web apps,
+                  integrating APIs, or creating mobile-first designs, I aim for
+                  clean, maintainable, and efficient code.
+                </p>
+                <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
+                  <span className="text-indigo-600 dark:text-indigo-400 font-medium">
+                    Skills & Technologies I work with:
+                  </span>{" "}
+                  React.js, Redux, Node.js, Express.js, MongoDB, React Native,
+                  Tailwind CSS, Firebase, Stripe, PayPal, AWS, Git & GitHub.
+                </p>
 
-          <div className="bg-gray-100 dark:bg-gray-900"> 
- {/* ===== HERO SECTION ===== */}
- <div className="bg-gradient-to-t from-blue-600 dark:from-gray-800 to-white dark:to-gray-800 flex flex-col md:flex-row items-center justify-between p-6 sm:p-10 lg:p-12 max-w-8xl mx-auto gap-8 md:gap-16 rounded-b-[18%] transition-colors duration-300">
-            {/* Text Section */}
-            <div className="flex-1 text-center md:text-left">
-              <h6 className="font-semibold text-indigo-600 dark:text-indigo-400 text-sm sm:text-base uppercase tracking-wide">
-                | Welcome to My Portfolio
-              </h6>
-              <h2 className="text-gray-900 dark:text-white font-extrabold text-2xl sm:text-3xl lg:text-4xl mt-3 mb-4 leading-snug">
-                Building Modern & Scalable <br className="hidden sm:block" />{" "}
-                Web & Mobile Experiences
-              </h2>
-              <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
-                I'm a passionate{" "}
-                <span className="text-indigo-600 dark:text-indigo-400 font-semibold">
-                  Full Stack Developer
-                </span>{" "}
-                specializing in MERN stack (MongoDB, Express.js, React.js,
-                Node.js), React Native, Logo Designing, and use of AI Tools. I
-                create high-performance, responsive applications with clean
-                UI/UX, secure backend APIs, authentication, payment
-                integrations, and cloud deployment.
-              </p>
-              <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
-                My work focuses on turning complex problems into intuitive
-                digital solutions. Whether it's building scalable web apps,
-                integrating APIs, or creating mobile-first designs, I aim for
-                clean, maintainable, and efficient code.
-              </p>
-              <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
-                <span className="text-indigo-600 dark:text-indigo-400 font-medium">
-                  Skills & Technologies I work with:
-                </span>{" "}
-                React.js, Redux, Node.js, Express.js, MongoDB, React Native,
-                Tailwind CSS, Firebase, Stripe, PayPal, AWS, Git & GitHub.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mb-6">
-                <button
-                  onClick={() => navigate("/contact-me")}
-                  className="bg-indigo-600 dark:bg-indigo-700 px-6 py-3 rounded-full text-white font-semibold hover:bg-indigo-500 dark:hover:bg-indigo-600 shadow-md transition transform hover:-translate-y-1 hover:scale-105 flex items-center justify-center"
-                >
-                  <FaArrowRight className="mr-2" /> Contact Me
-                </button>
-                <button
-                  onClick={() => navigate("/about")}
-                  className="bg-orange-500 dark:bg-orange-600 px-6 py-3 rounded-full text-white font-semibold hover:bg-orange-400 dark:hover:bg-orange-500 shadow-md transition transform hover:-translate-y-1 hover:scale-105 flex items-center justify-center"
-                >
-                  <FaUser className="mr-2" /> About Me
-                </button>
-                <button
-                  onClick={handleChatWithUs}
-                  className="bg-green-600 dark:bg-green-700 px-6 py-3 rounded-full text-white font-semibold hover:bg-green-500 dark:hover:bg-green-600 shadow-md transition transform hover:-translate-y-1 hover:scale-105 flex items-center justify-center"
-                >
-                  <FaEnvelope className="mr-2" /> Mail Me
-                </button>
-              </div>
-            </div>
-
-            {/* Image Section */}
-            <div className="flex flex-col items-center justify-center w-full md:w-1/3">
-              <img
-                src={placeholderImage}
-                alt="Vikash Verma"
-                className="w-48 sm:w-52 md:w-64 lg:w-72 h-auto rounded-full shadow-2xl max-w-full"
-              />
-              <span className="mt-4 text-xl sm:text-xl lg:text-3xl font-semibold text-slate-900 dark:text-slate-100 font-serif">
-                VIKASH VERMA
-              </span>
-              <span className="text-sm sm:text-base text-gray-700 dark:text-gray-300 mt-1 font-light">
-                Full Stack Developer
-              </span>
-            </div>
-          </div>
-
-          {/* ===== SKILLS SECTION ===== */}
-          <div className="py-16 px-6 sm:px-10 lg:px-16 bg-gray-100 dark:bg-gray-900 mx-auto rounded-b-[12%] border-b-4 lg:rounded-b-[20%] border-indigo-600 rounded-t-[18%]">
-            <div className="max-w-6xl mx-auto">
-              <h3 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-12 text-center text-gray-900 dark:text-white">
-                My{" "}
-                <span className="text-indigo-600 dark:text-indigo-400">
-                  Skills
-                </span>{" "}
-                & Expertise
-              </h3>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                {advantages.map((item, index) => (
-                  <div
-                    key={index}
-                    className="group relative p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transform transition duration-500 hover:-translate-y-2"
+                <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mb-6">
+                  <button
+                    onClick={() => navigate("/contact-me")}
+                    className="bg-indigo-600 dark:bg-indigo-700 px-6 py-3 rounded-full text-white font-semibold hover:bg-indigo-500 dark:hover:bg-indigo-600 shadow-md transition transform hover:-translate-y-1 hover:scale-105 flex items-center justify-center"
                   >
-                    <div className="absolute -top-6 -right-6 w-24 h-24 rounded-full bg-gradient-to-br from-indigo-100 to-blue-600 dark:from-indigo-800 dark:to-gray-700 opacity-20 pointer-events-none"></div>
-                    <span className="text-4xl flex items-center justify-center border-2 border-indigo-600 dark:border-indigo-400 rounded-full h-16 w-16 mb-4 transition-transform duration-300 group-hover:scale-110">
-                      {item.icon}
-                    </span>
-                    <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2">
-                      {item.title}
-                    </h3>
-                    <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base">
-                      {item.description}
-                    </p>
-                  </div>
-                ))}
+                    <FaArrowRight className="mr-2" /> Contact Me
+                  </button>
+                  <button
+                    onClick={() => navigate("/about")}
+                    className="bg-orange-500 dark:bg-orange-600 px-6 py-3 rounded-full text-white font-semibold hover:bg-orange-400 dark:hover:bg-orange-500 shadow-md transition transform hover:-translate-y-1 hover:scale-105 flex items-center justify-center"
+                  >
+                    <FaUser className="mr-2" /> About Me
+                  </button>
+                  <button
+                    onClick={handleChatWithUs}
+                    className="bg-green-600 dark:bg-green-700 px-6 py-3 rounded-full text-white font-semibold hover:bg-green-500 dark:hover:bg-green-600 shadow-md transition transform hover:-translate-y-1 hover:scale-105 flex items-center justify-center"
+                  >
+                    <FaEnvelope className="mr-2" /> Mail Me
+                  </button>
+                </div>
+              </div>
+
+              {/* Image Section */}
+              <div className="flex flex-col items-center justify-center w-full md:w-1/3">
+                <img
+                  src={placeholderImage}
+                  alt="Vikash Verma"
+                  className="w-48 sm:w-52 md:w-64 lg:w-72 h-auto rounded-full shadow-2xl max-w-full"
+                />
+                <span className="mt-4 text-xl sm:text-xl lg:text-3xl font-semibold text-slate-900 dark:text-slate-100 font-serif">
+                  VIKASH VERMA
+                </span>
+                <span className="text-sm sm:text-base text-gray-700 dark:text-gray-300 mt-1 font-light">
+                  Full Stack Developer
+                </span>
+              </div>
+            </div>
+
+            {/* ===== SKILLS SECTION ===== */}
+            <div className="py-16 px-6 sm:px-10 lg:px-16 bg-gray-100 dark:bg-gray-900 mx-auto rounded-b-[12%] border-b-4 lg:rounded-b-[20%] border-indigo-600 rounded-t-[18%]">
+              <div className="max-w-6xl mx-auto">
+                <h3 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-12 text-center text-gray-900 dark:text-white">
+                  My{" "}
+                  <span className="text-indigo-600 dark:text-indigo-400">
+                    Skills
+                  </span>{" "}
+                  & Expertise
+                </h3>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {advantages.map((item, index) => (
+                    <div
+                      key={index}
+                      className="group relative p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transform transition duration-500 hover:-translate-y-2"
+                    >
+                      <div className="absolute -top-6 -right-6 w-24 h-24 rounded-full bg-gradient-to-br from-indigo-100 to-blue-600 dark:from-indigo-800 dark:to-gray-700 opacity-20 pointer-events-none"></div>
+                      <span className="text-4xl flex items-center justify-center border-2 border-indigo-600 dark:border-indigo-400 rounded-full h-16 w-16 mb-4 transition-transform duration-300 group-hover:scale-110">
+                        {item.icon}
+                      </span>
+                      <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2">
+                        {item.title}
+                      </h3>
+                      <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base">
+                        {item.description}
+                      </p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
-          </div>
-         
 
           {/* ===== FEATURED PROJECTS ===== */}
           <div className="py-16 px-6 sm:px-10 lg:px-16 max-w-7xl mx-auto ">
@@ -316,7 +314,7 @@ export default function Home() {
           </div>
 
           {/* ===== CTA ===== */}
-          <div className="py-16 px-6 sm:px-10 lg:px-16 bg-gradient-to-r from-indigo-500 to-purple-400 dark:from-indigo-700 dark:to-purple-800 rounded-t-[20%] border-t-4 border-white text-center text-white shadow-xl">
+          <div className="py-16 px-6 sm:px-10 lg:px-16 bg-gradient-to-b from-blue-500 to-gray-300 dark:from-gray-800 dark:to-gray-800 rounded-t-[20%] border-t-4  dark:border-indigo-600 text-center text-white shadow-md">
             <h3 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-6">
               Ready to Collaborate?
             </h3>
@@ -346,7 +344,7 @@ export default function Home() {
           </div>
 
           {/* ===== FOOTER ===== */}
-          <div className="py-6 px-4 sm:px-6 lg:px-12 bg-gray-200 dark:bg-gray-800 text-center">
+          <div className="py-6 px-4 sm:px-6 lg:px-12  dark:bg-gray-900 text-center">
             <p className="text-black dark:text-white font-semibold">
               © 2026 Vikash Verma. All rights reserved.
             </p>
