@@ -314,7 +314,7 @@ export default function Home() {
           </div>
 
           {/* ===== CTA ===== */}
-          <div className="py-16 px-6 sm:px-10 lg:px-16 bg-gradient-to-b from-blue-500 to-gray-300 dark:from-gray-800 dark:to-gray-800 rounded-t-[20%] border-t-4  dark:border-gray-600 text-center text-white shadow-md">
+          <div className="py-16 px-6 sm:px-10 lg:px-16 bg-gradient-to-b from-blue-600 to-gray-100 dark:from-gray-800 dark:to-gray-800 rounded-t-[20%] border-t-4  dark:border-gray-600 text-center text-white shadow-md">
             <h3 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-6">
               Ready to Collaborate?
             </h3>
