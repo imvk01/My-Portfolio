@@ -21,7 +21,8 @@ export default function About() {
         {/* ===== HEADER SECTION ===== */}
         <div className="max-w-6xl mx-auto text-center mb-16">
           <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white mb-6">
-            About <span className="text-indigo-600 dark:text-indigo-400">Me</span>
+            About{" "}
+            <span className="text-indigo-600 dark:text-indigo-400">Me</span>
           </h1>
 
           <p className="text-gray-600 dark:text-gray-300 text-lg max-w-3xl mx-auto">
@@ -126,97 +127,92 @@ export default function About() {
           </div>
         </div>
 
-     {/* ===== EXPERIENCE SECTION ===== */}
-<div className="max-w-6xl mx-auto mb-20">
-  <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">
-    Experience
-  </h2>
+        {/* ===== EXPERIENCE SECTION ===== */}
+        <div className="max-w-6xl mx-auto mb-20">
+          <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">
+            Experience
+          </h2>
 
-  <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-    
-    {/* TEXT */}
-    <div className="flex-1">
-      <h3 className="text-xl font-semibold text-indigo-600 mb-2">
-        Full Stack Developer Intern
-      </h3>
-      <p className="text-gray-500 dark:text-gray-400 mb-4">
-        UpGrad Campus – Jalandhar, India
-      </p>
+          <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+            {/* TEXT */}
+            <div className="flex-1">
+              <h3 className="text-xl font-semibold text-indigo-600 mb-2">
+                Full Stack Developer Intern
+              </h3>
+              <p className="text-gray-500 dark:text-gray-400 mb-4">
+                UpGrad Campus – Jalandhar, India
+              </p>
 
-      <ul className="list-disc pl-5 text-gray-600 dark:text-gray-300 space-y-2">
-        <li>
-          Developed Real Estate Marketplace using MERN stack (TVA Group).
-        </li>
-        <li>Built scalable REST APIs using Node.js & Express.</li>
-        <li>Integrated third-party services and payment gateways.</li>
-        <li>Conducted code reviews and maintained best practices.</li>
-      </ul>
-    </div>
+              <ul className="list-disc pl-5 text-gray-600 dark:text-gray-300 space-y-2">
+                <li>
+                  Developed Real Estate Marketplace using MERN stack (TVA
+                  Group).
+                </li>
+                <li>Built scalable REST APIs using Node.js & Express.</li>
+                <li>Integrated third-party services and payment gateways.</li>
+                <li>Conducted code reviews and maintained best practices.</li>
+              </ul>
+            </div>
 
-    {/* IMAGE */}
-    <img
-      src={certificate}
-      alt="Certificate"
-    className="w-60 h-40 sm:w-72 sm:h-44 object-contain bg-white p-3 rounded-xl shadow-lg"
-    />
-  </div>
-</div>
+            {/* IMAGE */}
+            <img
+              src={certificate}
+              alt="Certificate"
+              className="w-60 h-40 sm:w-72 sm:h-44 object-contain bg-white p-3 rounded-xl shadow-lg"
+            />
+          </div>
+        </div>
 
-     {/* ===== EDUCATION SECTION ===== */}
-<div className="max-w-6xl mx-auto mb-20">
-  <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12 flex justify-center items-center gap-3">
-    <FaGraduationCap className="text-indigo-600 dark:text-indigo-400" />
-    Education
-  </h2>
+        {/* ===== EDUCATION SECTION ===== */}
+        <div className="max-w-6xl mx-auto mb-20">
+          <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12 flex justify-center items-center gap-3">
+            <FaGraduationCap className="text-indigo-600 dark:text-indigo-400" />
+            Education
+          </h2>
 
-  <div className="space-y-8">
+          <div className="space-y-8">
+            {/* ===== UE ===== */}
+            <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+              {/* TEXT */}
+              <div>
+                <h3 className="text-xl font-semibold text-indigo-600 dark:text-indigo-400 mb-2">
+                  Master of Science (M.Sc.) in Software Engineering
+                </h3>
+                <p className="text-gray-500 dark:text-gray-400 mb-2">
+                  University of Europe for Applied Sciences – Germany (Current)
+                </p>
+              </div>
 
-    {/* ===== UE ===== */}
-    <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-      
-      {/* TEXT */}
-      <div>
-        <h3 className="text-xl font-semibold text-indigo-600 dark:text-indigo-400 mb-2">
-          Master of Science (M.Sc.) in Software Engineering
-        </h3>
-        <p className="text-gray-500 dark:text-gray-400 mb-2">
-          University of Europe for Applied Sciences – Germany (Current)
-        </p>
-      </div>
+              {/* IMAGE */}
+              <img
+                src={ueLogo}
+                alt="UE Logo"
+                className="w-36 h-16 object-contain bg-white p-2 rounded-xl shadow"
+              />
+            </div>
 
-      {/* IMAGE */}
-      <img
-        src={ueLogo}
-        alt="UE Logo"
-        className="w-36 h-16 object-contain bg-white p-2 rounded-xl shadow"
-      />
-    </div>
+            {/* ===== LPU ===== */}
+            <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+              {/* TEXT */}
+              <div>
+                <h3 className="text-xl font-semibold text-indigo-600 dark:text-indigo-400 mb-2">
+                  Bachelor of Technology – Computer Science & Engineering
+                </h3>
+                <p className="text-gray-500 dark:text-gray-400">
+                  Lovely Professional University, India | CGPA: 7.47
+                </p>
+              </div>
 
-    {/* ===== LPU ===== */}
-    <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-      
-      {/* TEXT */}
-      <div>
-        <h3 className="text-xl font-semibold text-indigo-600 dark:text-indigo-400 mb-2">
-          Bachelor of Technology – Computer Science & Engineering
-        </h3>
-        <p className="text-gray-500 dark:text-gray-400">
-          Lovely Professional University, India | CGPA: 7.47
-        </p>
-      </div>
+              {/* IMAGE */}
+              <img
+                src={lpuLogo}
+                alt="LPU Logo"
+                className="w-36 h-16 object-contain bg-white p-2 rounded-xl shadow"
+              />
+            </div>
+          </div>
+        </div>
 
-      {/* IMAGE */}
-      <img
-        src={lpuLogo}
-        alt="LPU Logo"
-       className="w-36 h-16 object-contain bg-white p-2 rounded-xl shadow"
-      />
-    </div>
-
-  </div>
-</div>
-
-  
         {/* ===== PROJECTS SECTION ===== */}
         <div className="max-w-6xl mx-auto mb-20">
           <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">
@@ -267,22 +263,24 @@ export default function About() {
           </div>
         </div>
 
-       {/* ===== LANGUAGES SECTION ===== */}
-<div className="max-w-6xl mx-auto mb-20">
-  <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12 flex justify-center items-center gap-3">
-    <FaLanguage className="text-indigo-600 dark:text-indigo-400" />
-    Languages
-  </h2>
+        {/* ===== LANGUAGES SECTION ===== */}
+        <div className="max-w-6xl mx-auto mb-20">
+          <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12 flex justify-center items-center gap-3">
+            <FaLanguage className="text-indigo-600 dark:text-indigo-400" />
+            Languages
+          </h2>
 
-  <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg text-center">
-    <p className="text-gray-700 dark:text-gray-300 text-lg font-semibold">
-      Hindi (Native)  •  English (B2)  •  Deutsch (B1)  •  Punjabi
-    </p>
-  </div>
-</div>
+          <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg text-center">
+            <p className="text-gray-700 dark:text-gray-300 text-lg font-semibold">
+              Hindi (Native) • English (B2) • Deutsch (B1) • Punjabi
+            </p>
+          </div>
+        </div>
         {/* ===== CALL TO ACTION ===== */}
         <div className="max-w-4xl mx-auto text-center bg-indigo-600 dark:bg-indigo-700 text-white py-12 px-8 rounded-3xl shadow-xl">
-          <h2 className="text-3xl font-bold mb-4">Let’s Build Something Great Together</h2>
+          <h2 className="text-3xl font-bold mb-4">
+            Let’s Build Something Great Together
+          </h2>
           <p className="mb-6">
             I’m open to internships, working student roles, and full-time
             opportunities across Germany and Europe.
