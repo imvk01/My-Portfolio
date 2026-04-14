@@ -65,8 +65,8 @@ function Contact() {
       <section className="mt-24 px-6 lg:px-20 py-16 bg-gray-50 dark:bg-gray-900">
         {/* Heading */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-extrabold text-gray-900 dark:text-white mb-4">
-            Let’s Work Together
+          <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white mb-2">
+            Let’s <span className="text-indigo-600 dark:text-indigo-400">Work Together</span> 
           </h2>
           <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto text-lg">
             I'm open to full-time roles, internships, and freelance
@@ -192,7 +192,7 @@ function Contact() {
       {/* ===== FOOTER ===== */}
       <div className="py-6 px-4 sm:px-6 lg:px-12 bg-gray-200 dark:bg-gray-800 text-center">
         <p className="text-black dark:text-white font-semibold">
-          © 2026 Vikash Verma. All rights reserved.
+        © 2026 Vikash Verma — Crafted with precision
         </p>
         <div className="flex justify-center space-x-4 mt-2 text-indigo-600 dark:text-indigo-400">
           <a

@@ -346,7 +346,7 @@ export default function Home() {
           {/* ===== FOOTER ===== */}
           <div className="py-6 px-4 sm:px-6 lg:px-12  dark:bg-gray-900 text-center max-w-8xl mx-auto">
             <p className="text-black dark:text-white font-semibold">
-              © 2026 Vikash Verma. All rights reserved.
+            © 2026 Vikash Verma — Crafted with precision
             </p>
             <div className="flex justify-center space-x-4 mt-2 text-indigo-600 dark:text-indigo-400">
               <a
