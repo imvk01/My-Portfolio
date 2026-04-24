@@ -11,6 +11,22 @@ export default function Projects() {
 
   const projects = [
     {
+      name: "Keyclock IAM Platform",
+      description:
+        "Simplified Keycloak-inspired IAM platform built with React, TypeScript, Node.js, Express, and MongoDB, featuring authentication, user and organization management, invitations, and configurable auth/MFA settings.",
+      tech: [
+        "React",
+        "Node.js",
+        "MongoDB",
+        "TypeScript",
+        "Tailwind",
+        "JWT",
+      ],
+      live: "https://keycloak-iam-platform.onrender.com",
+      github: "https://github.com/imvk01/Keycloak-IAM-Platform",
+      privateRepo: false,
+    },
+    {
       name: "CareerConnect",
       description:
         "Full-stack job portal with resume uploads, referral system, premium payment plans, and secure authentication.",
