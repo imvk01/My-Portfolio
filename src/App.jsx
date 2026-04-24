@@ -33,7 +33,7 @@ function PageLoader({ children }) {
 }
 
 export default function App() {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(true);
 
   // Apply dark mode class to <html>
   useEffect(() => {
