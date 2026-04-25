@@ -1,4 +1,3 @@
-// DarkModeContext.js
 import { createContext, useContext, useState, useEffect } from "react";
 
 const DarkModeContext = createContext();
@@ -6,25 +5,37 @@ const DarkModeContext = createContext();
 export const useDarkMode = () => useContext(DarkModeContext);
 
 export const DarkModeProvider = ({ children }) => {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true); // default dark mode
 
-  // On first load, check localStorage
   useEffect(() => {
     const stored = localStorage.getItem("darkMode");
-    if (stored === "true") {
-      setDarkMode(true);
+
+    if (stored !== null) {
+      const isDark = stored === "true";
+      setDarkMode(isDark);
+
+      if (isDark) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    } else {
+      // first visit → default dark
       document.documentElement.classList.add("dark");
+      localStorage.setItem("darkMode", "true");
     }
   }, []);
 
   const toggleDarkMode = () => {
     setDarkMode((prev) => {
       const newMode = !prev;
+
       if (newMode) {
         document.documentElement.classList.add("dark");
       } else {
         document.documentElement.classList.remove("dark");
       }
+
       localStorage.setItem("darkMode", newMode);
       return newMode;
     });
