@@ -5,6 +5,7 @@ import {
   FaLock,
   FaLinkedin,
 } from "react-icons/fa";
+import Footer from "../components/footer";
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -109,7 +110,7 @@ export default function Projects() {
 
   return (
     <>
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-20 px-6 lg:px-16 lg:mt-[5%] md:mt-[8%] mt-[15%]">
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-20 px-6 lg:px-16 lg:mt-[5%] md:mt-[8%] mt-[15%] font-mono">
         {/* HERO */}
         <div className="text-center max-w-4xl mx-auto mb-16">
           <h1 className="text-4xl lg:text-5xl font-extrabold text-gray-900 dark:text-white mb-6">
@@ -211,30 +212,8 @@ export default function Projects() {
         )}
       </div>
 
-      {/* FOOTER */}
-      <div className="py-6 px-4 sm:px-6 lg:px-12 bg-gray-200 dark:bg-gray-800 text-center">
-        <p className="text-black dark:text-white font-semibold">
-        © 2026 Vikash Verma — Crafted with precision
-        </p>
-        <div className="flex justify-center space-x-4 mt-2 text-indigo-600 dark:text-indigo-400">
-          <a
-            href="https://www.linkedin.com/in/imvk1/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-indigo-500 dark:hover:text-indigo-300 text-xl"
-          >
-            <FaLinkedin />
-          </a>
-          <a
-            href="https://github.com/imvk01"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-indigo-500 dark:hover:text-indigo-300 text-xl"
-          >
-            <FaGithub />
-          </a>
-        </div>
-      </div>
+     {/* ===== FOOTER ===== */}
+              <Footer />
     </>
   );
 }

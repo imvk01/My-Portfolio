@@ -3,6 +3,7 @@ import { FaLinkedin, FaGithub } from "react-icons/fa";
 import rec1 from "./gallery/A.jpg";
 import rec2 from "./gallery/B.jpg";
 import rec3 from "./gallery/C.jpg";
+import Footer from "../components/footer";
 
 export default function Recommendations() {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -11,7 +12,7 @@ export default function Recommendations() {
 
   return (
     <>
-      <div className="min-h-screen pt-32 px-6 md:px-16 bg-gray-50 dark:bg-gray-900 lg:mt-5 mt-4">
+      <div className="min-h-screen pt-32 px-6 md:px-16 bg-gray-50 dark:bg-gray-900 lg:mt-5 mt-4 font-mono">
         {/* Page Title */}
         <h1 className="text-3xl md:text-5xl font-extrabold text-center mb-12 text-gray-900 dark:text-white">
           My <span className="text-indigo-600 dark:text-indigo-400">Recommendations</span>
@@ -49,30 +50,8 @@ export default function Recommendations() {
         )}
       </div>
 
-      {/* ===== FOOTER ===== */}
-      <div className="py-6 px-4 sm:px-6 lg:px-12 bg-gray-200 dark:bg-gray-800 text-center">
-        <p className="text-black dark:text-white font-semibold">
-        © 2026 Vikash Verma — Crafted with precision
-        </p>
-        <div className="flex justify-center space-x-4 mt-2 text-indigo-600 dark:text-indigo-400">
-          <a
-            href="https://www.linkedin.com/in/imvk1/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-indigo-500 dark:hover:text-indigo-300 text-xl"
-          >
-            <FaLinkedin />
-          </a>
-          <a
-            href="https://github.com/imvk01"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-indigo-500 dark:hover:text-indigo-300 text-xl"
-          >
-            <FaGithub />
-          </a>
-        </div>
-      </div>
+   {/* ===== FOOTER ===== */}
+            <Footer />
     </>
   );
 }

@@ -4,14 +4,13 @@ import { useNavigate } from "react-router-dom";
 import {
   FaArrowRight,
   FaEnvelope,
-  FaLinkedin,
-  FaGithub,
   FaUser,
 } from "react-icons/fa";
 import demoVideo from "./gallery/coding.mp4";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import PageWrapper from "../components/PageWrapper";
+import Footer from "../components/footer";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -112,7 +111,7 @@ export default function Home() {
 
   return (
     <PageWrapper>
-      <div className="w-full min-h-screen mt-[26%] lg:mt-[7%] md:mt-[13%]">
+      <div className="w-full min-h-screen mt-[26%] lg:mt-[7%] md:mt-[13%] font-mono ">
         <div className="dark:bg-gray-900 rounded-b-[20%]">
           <div className="bg-gray-100 dark:bg-gray-900">
             {/* ===== HERO SECTION ===== */}
@@ -344,25 +343,8 @@ export default function Home() {
           </div>
 
           {/* ===== FOOTER ===== */}
-          <div className="py-6 px-4 sm:px-6 lg:px-12  dark:bg-gray-900 text-center max-w-8xl mx-auto">
-            <p className="text-black dark:text-white font-semibold">
-            © 2026 Vikash Verma — Crafted with precision
-            </p>
-            <div className="flex justify-center space-x-4 mt-2 text-indigo-600 dark:text-indigo-400">
-              <a
-                href="https://www.linkedin.com/in/imvk1/"
-                className="hover:text-indigo-500 dark:hover:text-indigo-300"
-              >
-                <FaLinkedin />
-              </a>
-              <a
-                href="https://github.com/imvk01"
-                className="hover:text-indigo-500 dark:hover:text-indigo-300"
-              >
-                <FaGithub />
-              </a>
-            </div>
-          </div>
+          <Footer />
+
         </div>
       </div>
     </PageWrapper>

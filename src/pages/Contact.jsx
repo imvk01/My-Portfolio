@@ -10,6 +10,7 @@ import {
   FaWhatsapp,
 } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
+import Footer from "../components/footer";
 import { AiOutlineArrowRight } from "react-icons/ai";
 
 function Contact() {
@@ -62,7 +63,7 @@ function Contact() {
 
   return (
     <>
-      <section className="mt-24 px-6 lg:px-20 py-16 bg-gray-50 dark:bg-gray-900">
+      <section className="mt-24 px-6 lg:px-20 py-16 bg-gray-50 dark:bg-gray-900 font-mono">
         {/* Heading */}
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white mb-2">
@@ -190,25 +191,7 @@ function Contact() {
       </section>
 
       {/* ===== FOOTER ===== */}
-      <div className="py-6 px-4 sm:px-6 lg:px-12 bg-gray-200 dark:bg-gray-800 text-center">
-        <p className="text-black dark:text-white font-semibold">
-        © 2026 Vikash Verma — Crafted with precision
-        </p>
-        <div className="flex justify-center space-x-4 mt-2 text-indigo-600 dark:text-indigo-400">
-          <a
-            href="https://www.linkedin.com/in/imvk1/"
-            className="hover:text-indigo-500 dark:hover:text-indigo-300"
-          >
-            <FaLinkedin className="text-xl" />
-          </a>
-          <a
-            href="https://github.com/imvk01"
-            className="hover:text-indigo-500 dark:hover:text-indigo-300"
-          >
-            <FaGithub className="text-xl" />
-          </a>
-        </div>
-      </div>
+               <Footer />
     </>
   );
 }

@@ -13,11 +13,12 @@ import {
 import ueLogo from "./gallery/ue.png";
 import lpuLogo from "./gallery/lpu.png";
 import certificate from "./gallery/certificate.png";
+import Footer from "../components/footer";
 
 export default function About() {
   return (
     <>
-      <div className="min-h-screen w-full bg-gray-50 dark:bg-gray-900 py-16 px-6 sm:px-10 lg:px-20 lg:mt-[5%] md:mt-[10%] mt-[20%]">
+      <div className="min-h-screen w-full bg-gray-50 dark:bg-gray-900 py-16 px-6 sm:px-10 lg:px-20 lg:mt-[5%] md:mt-[10%] mt-[20%] font-mono">
         {/* ===== HEADER SECTION ===== */}
         <div className="max-w-6xl mx-auto text-center mb-16">
           <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white mb-6">
@@ -295,25 +296,7 @@ export default function About() {
       </div>
 
       {/* ===== FOOTER ===== */}
-      <div className="py-6 px-4 sm:px-6 lg:px-12 bg-gray-200 dark:bg-gray-800 text-center">
-        <p className="text-black dark:text-white font-semibold">
-        © 2026 Vikash Verma — Crafted with precision
-        </p>
-        <div className="flex justify-center space-x-4 mt-2 text-indigo-600 dark:text-indigo-400">
-          <a
-            href="https://www.linkedin.com/in/imvk1/"
-            className="hover:text-indigo-500 dark:hover:text-indigo-300"
-          >
-            <FaLinkedin />
-          </a>
-          <a
-            href="https://github.com/imvk01"
-            className="hover:text-indigo-500 dark:hover:text-indigo-300"
-          >
-            <FaGithub />
-          </a>
-        </div>
-      </div>
+               <Footer />
     </>
   );
 }
