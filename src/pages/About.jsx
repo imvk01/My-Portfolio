@@ -13,7 +13,7 @@ import {
 import ueLogo from "./gallery/ue.png";
 import lpuLogo from "./gallery/lpu.png";
 import certificate from "./gallery/certificate.png";
-import Footer from "../components/footer";
+import Footer from "../components/Footer";
 
 export default function About() {
   return (

@@ -10,7 +10,7 @@ import demoVideo from "./gallery/coding.mp4";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import PageWrapper from "../components/PageWrapper";
-import Footer from "../components/footer";
+import Footer from "../components/Footer";
 
 import "swiper/css";
 import "swiper/css/navigation";

@@ -5,7 +5,7 @@ import {
   FaLock,
   FaLinkedin,
 } from "react-icons/fa";
-import Footer from "../components/footer";
+import Footer from "../components/Footer";
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState(null);

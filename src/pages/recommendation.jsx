@@ -3,7 +3,7 @@ import { FaLinkedin, FaGithub } from "react-icons/fa";
 import rec1 from "./gallery/A.jpg";
 import rec2 from "./gallery/B.jpg";
 import rec3 from "./gallery/C.jpg";
-import Footer from "../components/footer";
+import Footer from "../components/Footer";
 
 export default function Recommendations() {
   const [selectedImage, setSelectedImage] = useState(null);

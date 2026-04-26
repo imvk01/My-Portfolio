@@ -10,7 +10,7 @@ import {
   FaWhatsapp,
 } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
-import Footer from "../components/footer";
+import Footer from "../components/Footer";
 import { AiOutlineArrowRight } from "react-icons/ai";
 
 function Contact() {
