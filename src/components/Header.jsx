@@ -74,7 +74,7 @@ export default function Header() {
             <a
               href={resumeFile}
               download="Vikash_Resume.pdf"
-              className="bg-blue-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-full transition-transform hover:scale-105 font-light"
+              className="bg-blue-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-full transition-transform hover:scale-105 font-light font-mono"
             >
               Download CV
             </a>

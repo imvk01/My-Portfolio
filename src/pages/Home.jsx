@@ -177,7 +177,7 @@ export default function Home() {
                 <img
                   src={placeholderImage}
                   alt="Vikash Verma"
-                  className="w-48 sm:w-52 md:w-64 lg:w-72 h-auto rounded-full shadow-2xl max-w-full"
+                  className="w-48 sm:w-52 md:w-64 lg:w-72 h-auto rounded-full shadow-2xl max-w-full border-[3px]  dark:border-gray-500 transition-transform duration-300 hover:scale-105"
                 />
                 <span className="mt-4 text-xl sm:text-xl lg:text-3xl font-semibold text-slate-900 dark:text-slate-100 font-serif">
                   VIKASH VERMA
