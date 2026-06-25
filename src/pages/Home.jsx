@@ -51,9 +51,9 @@ export default function Home() {
   }, []);
 
   const handleMail = () => {
-    const email = "jaskaransingh@example.com";
+    const email = "vkvermavk96@gmail.com";
     const subject = "Portfolio Contact";
-    const body = "Hi Jass,\n\nI would like to get in touch with you.";
+    const body = "Hi Vikash,\n\nI would like to get in touch with you.";
     const url = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.open(url, "_blank");
   };
