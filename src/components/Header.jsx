@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, Sun, Moon, Download } from "lucide-react";
 import MobileNavbar from "./MobileNavbar";
-import resumeFile from "./download/Jass-CV.pdf";
+import resumeFile from "./download/Vikash-CV.pdf";
 import { useDarkMode } from "../DarkModeContext";
 import logo from "./logo/logo.jpg";
 
@@ -89,7 +89,7 @@ export default function Header() {
           <div className="flex items-center gap-2 ml-4 pl-4 border-l border-gray-200 dark:border-white/10">
             <a
               href={resumeFile}
-              download="Jaskaran_Singh_CV.pdf"
+              download="Vikash_CV.pdf"
               className="flex items-center gap-2 bg-accent hover:bg-accent-dark text-white px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 hover:shadow-lg hover:shadow-accent/25"
             >
               <Download size={15} />
