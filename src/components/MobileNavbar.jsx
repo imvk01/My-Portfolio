@@ -1,55 +1,51 @@
 import React from "react";
-import { X } from "lucide-react";
+import { X, ArrowRight } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import resumeFile from "./download/Vikash-CV.pdf";
-import { useDarkMode } from "../DarkModeContext"; // import context
+import resumeFile from "./download/Jass-CV.pdf";
+import { useDarkMode } from "../DarkModeContext";
 
 function MobileNavbar({ isOpen, setIsOpen }) {
   const location = useLocation();
-  const { darkMode } = useDarkMode(); // use dark mode state
+  const { darkMode } = useDarkMode();
 
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
     { name: "Projects", path: "/projects" },
     { name: "Recommendations", path: "/recommendation" },
-    { name: "Contact Me", path: "/contact-me" },
+    { name: "Contact", path: "/contact-me" },
   ];
 
   return (
     <div
       onClick={() => setIsOpen(false)}
-      className={`fixed inset-0 bg-black/40 backdrop-blur-sm transition-all duration-300 z-50 ${
+      className={`fixed inset-0 bg-black/50 backdrop-blur-sm transition-all duration-300 z-50 ${
         isOpen ? "opacity-100 visible" : "opacity-0 invisible"
       }`}
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className={`absolute top-0 left-0 h-screen w-4/5 max-w-xs 
-        ${darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-800"} 
-        shadow-2xl rounded-r-3xl
-        transform transition-transform duration-300 ease-in-out
-        ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
+        className={`absolute top-0 right-0 h-screen w-4/5 max-w-sm 
+          bg-white dark:bg-custom-background-dark
+          shadow-2xl
+          transform transition-transform duration-300 ease-out
+          ${isOpen ? "translate-x-0" : "translate-x-full"}`}
       >
-        {/* Gradient Header */}
-        <div
-          className={`flex justify-between items-center p-5 rounded-tr-3xl ${
-            darkMode
-              ? "bg-gradient-to-r from-gray-700 to-gray-800 text-white"
-              : " text-white bg-gradient-to-r from-blue-600 to-indigo-600 "
-          }`}
-        >
-          <h2 className="text-lg font-semibold tracking-wide">Welcome to VK Techs</h2>
+        {/* Header */}
+        <div className="flex justify-between items-center p-6 border-b border-gray-100 dark:border-white/5">
+          <span className="text-lg font-bold text-gray-900 dark:text-white">
+            JS<span className="text-accent">.</span>
+          </span>
           <button
             onClick={() => setIsOpen(false)}
-            className="p-2 rounded-full hover:bg-white/20 transition"
+            className="p-2 rounded-xl hover:bg-gray-100 dark:hover:bg-surface transition-colors"
           >
-            <X size={22} />
+            <X size={20} className="text-gray-500 dark:text-gray-400" />
           </button>
         </div>
 
         {/* Navigation Links */}
-        <nav className="flex flex-col p-6 space-y-3 font-semibold">
+        <nav className="flex flex-col p-6 space-y-1">
           {navLinks.map((link) => {
             const isActive = location.pathname === link.path;
             return (
@@ -57,39 +53,29 @@ function MobileNavbar({ isOpen, setIsOpen }) {
                 key={link.name}
                 to={link.path}
                 onClick={() => setIsOpen(false)}
-                className={`relative px-3 py-2 rounded-lg transition-all duration-200
+                className={`flex items-center justify-between px-4 py-3.5 rounded-xl text-[15px] font-medium transition-all duration-200
                   ${
                     isActive
-                      ? darkMode
-                        ? "bg-gray-800 text-indigo-400 border-l-4 border-indigo-400"
-                        : "bg-indigo-50 text-indigo-600 border-l-4 border-indigo-600"
-                      : darkMode
-                      ? "hover:bg-gray-800 hover:text-indigo-400"
-                      : "hover:bg-gray-100 hover:text-indigo-600"
+                      ? "bg-accent/10 text-accent"
+                      : "text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-surface hover:text-gray-900 dark:hover:text-white"
                   }`}
               >
                 {link.name}
+                {isActive && <ArrowRight size={16} />}
               </Link>
             );
           })}
 
-          {/* Divider */}
-          <div className={`border-t my-4 ${darkMode ? "border-gray-700" : "border-gray-300"}`}></div>
-
-          {/* Resume Button */}
-          <a
-            href={resumeFile}
-            download="Vikash_CV.pdf"
-            onClick={() => setIsOpen(false)}
-            className={`bg-gradient-to-r from-blue-600 to-indigo-600 
-                       text-white px-4 py-3 rounded-full 
-                       text-center font-medium 
-                       shadow-md hover:shadow-lg 
-                       transition-all duration-300 
-                       hover:scale-105`}
-          >
-            Download CV
-          </a>
+          <div className="pt-4 mt-4 border-t border-gray-100 dark:border-white/5">
+            <a
+              href={resumeFile}
+              download="Jaskaran_Singh_CV.pdf"
+              onClick={() => setIsOpen(false)}
+              className="flex items-center justify-center gap-2 bg-accent hover:bg-accent-dark text-white px-5 py-3 rounded-xl text-sm font-semibold transition-all duration-300 shadow-lg shadow-accent/20"
+            >
+              Download Resume
+            </a>
+          </div>
         </nav>
       </div>
     </div>

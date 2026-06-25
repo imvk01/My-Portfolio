@@ -5,22 +5,19 @@ const DarkModeContext = createContext();
 export const useDarkMode = () => useContext(DarkModeContext);
 
 export const DarkModeProvider = ({ children }) => {
-  const [darkMode, setDarkMode] = useState(true); // default dark mode
+  const [darkMode, setDarkMode] = useState(true);
 
   useEffect(() => {
     const stored = localStorage.getItem("darkMode");
-
     if (stored !== null) {
       const isDark = stored === "true";
       setDarkMode(isDark);
-
       if (isDark) {
         document.documentElement.classList.add("dark");
       } else {
         document.documentElement.classList.remove("dark");
       }
     } else {
-      // first visit → default dark
       document.documentElement.classList.add("dark");
       localStorage.setItem("darkMode", "true");
     }
@@ -29,13 +26,11 @@ export const DarkModeProvider = ({ children }) => {
   const toggleDarkMode = () => {
     setDarkMode((prev) => {
       const newMode = !prev;
-
       if (newMode) {
         document.documentElement.classList.add("dark");
       } else {
         document.documentElement.classList.remove("dark");
       }
-
       localStorage.setItem("darkMode", newMode);
       return newMode;
     });

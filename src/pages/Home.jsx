@@ -1,5 +1,6 @@
-import React from "react";
-import placeholderImage from "./gallery/abc.png";
+import React, { useEffect, useRef, useState } from "react";
+import profileImage from "./gallery/profile.png";
+import dhLogo from "./gallery/delivery-hero.png";
 import { useNavigate } from "react-router-dom";
 import {
   FaArrowRight,
@@ -11,86 +12,115 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import PageWrapper from "../components/PageWrapper";
 import Footer from "../components/Footer";
+import { Code2, Server, Database, Shield, CreditCard, Cloud } from "lucide-react";
 
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
+function useReveal() {
+  const ref = useRef(null);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      },
+      { threshold: 0.1 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+  return ref;
+}
+
 export default function Home() {
   const navigate = useNavigate();
+  const [typedText, setTypedText] = useState("");
+  const fullText = "Full Stack Developer";
 
-  const handleChatWithUs = () => {
-    const email = "vkvermavk96@gmail.com";
-    const subject = "Portfolio_Vikash";
-    const body = "Hi Vikash,\n\nI would like to get in touch with you.";
-    const url = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${encodeURIComponent(
-      subject
-    )}&body=${encodeURIComponent(body)}`;
+  useEffect(() => {
+    let i = 0;
+    const interval = setInterval(() => {
+      setTypedText(fullText.slice(0, i + 1));
+      i++;
+      if (i >= fullText.length) clearInterval(interval);
+    }, 80);
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleMail = () => {
+    const email = "jaskaransingh@example.com";
+    const subject = "Portfolio Contact";
+    const body = "Hi Jass,\n\nI would like to get in touch with you.";
+    const url = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.open(url, "_blank");
   };
 
-  const advantages = [
+  const skillsRef = useReveal();
+  const projectsRef = useReveal();
+  const videoRef = useReveal();
+  const testimonialsRef = useReveal();
+  const ctaRef = useReveal();
+
+  const skills = [
     {
-      title: "Responsive Design",
-      description: "Mobile-first, fully responsive UI using Tailwind CSS",
-      icon: "📱",
+      title: "Frontend Development",
+      description: "React.js, TypeScript, Tailwind CSS, responsive and accessible UI",
+      icon: <Code2 className="w-6 h-6" />,
     },
     {
-      title: "Scalable Backend",
-      description: "REST APIs built with Node.js & Express",
-      icon: "⚙️",
+      title: "Backend Development",
+      description: "Node.js, Express.js, REST & GraphQL APIs, microservices",
+      icon: <Server className="w-6 h-6" />,
     },
     {
-      title: "Database Management",
-      description: "Efficient MongoDB schema design & optimization",
-      icon: "🗄️",
+      title: "Database Design",
+      description: "MongoDB, PostgreSQL, schema optimization, data modeling",
+      icon: <Database className="w-6 h-6" />,
     },
     {
-      title: "Secure Authentication",
-      description: "JWT-based authentication & protected routes",
-      icon: "🔐",
+      title: "Authentication & Security",
+      description: "JWT, OAuth 2.0, role-based access, secure API design",
+      icon: <Shield className="w-6 h-6" />,
     },
     {
       title: "Payment Integration",
-      description: "Stripe & PayPal integration in MERN apps",
-      icon: "💳",
+      description: "Stripe, PayPal integration in production applications",
+      icon: <CreditCard className="w-6 h-6" />,
     },
     {
-      title: "Cloud Deployment",
-      description: "AWS EC2, Nginx & PM2 deployment experience",
-      icon: "☁️",
+      title: "Cloud & DevOps",
+      description: "AWS, Docker, CI/CD pipelines, Nginx, production deployment",
+      icon: <Cloud className="w-6 h-6" />,
     },
   ];
 
   const projects = [
     {
+      name: "Keycloak IAM Platform",
+      description: "Simplified IAM platform with authentication, user & org management, invitations, and configurable MFA settings.",
+      tech: "React, TypeScript, Node.js, MongoDB, JWT",
+      link: "https://keycloak-iam-platform.onrender.com",
+    },
+    {
       name: "CareerConnect",
-      description:
-        "A full-stack job portal with search, filters, resume uploads, referrals, and premium payment options.",
-      tech: "React.js, Node.js, Express.js, MongoDB, Stripe, PayPal, Tailwind CSS",
+      description: "Full-stack job portal with search, filters, resume uploads, referrals, and premium payment options.",
+      tech: "React.js, Node.js, Express.js, MongoDB, Stripe, PayPal",
       link: "https://www.carrerconnect.com/",
     },
     {
       name: "NeuroRevive 360",
-      description:
-        "Health & wellness platform for neuroscience-based rehabilitation with appointments and user management.",
-      tech: "React.js, Node.js, Express.js, MongoDB, Tailwind CSS, Firebase",
+      description: "Health & wellness platform for neuroscience-based rehabilitation with appointments and user management.",
+      tech: "React.js, Node.js, MongoDB, Firebase, Tailwind CSS",
       link: "https://neuro-revive360.vercel.app/",
     },
     {
       name: "Som Motor Records",
-      description:
-        "Real-time vehicle maintenance tracking system with authentication, notifications, and dashboards.",
-      note: "Due to Privacy, the Backend is not Deployed",
+      description: "Real-time vehicle maintenance tracking system with authentication, notifications, and dashboards.",
       tech: "React.js, Node.js, Socket.io, MongoDB, Tailwind CSS",
       link: "https://som-moter.netlify.app/",
-    },
-    {
-      name: "TVA Group",
-      description:
-        "Internal management platform with team collaboration, task tracking, and real-time notifications.",
-      tech: "React.js, Node.js, Express.js, MongoDB, Tailwind CSS, Socket.io",
-      link: "https://tva-group.onrender.com/",
     },
   ];
 
@@ -98,142 +128,135 @@ export default function Home() {
     {
       name: "Abhimanyu Sharma",
       role: "Internship Mentor",
-      feedback:
-        "Vikash is a dedicated developer with excellent MERN stack skills.",
+      feedback: "Jass is a dedicated developer with excellent full-stack skills and a strong eye for clean architecture.",
     },
     {
       name: "Shamneesh",
       role: "Project Manager",
-      feedback:
-        "Delivered high-quality work on time, very professional and collaborative.",
+      feedback: "Delivered high-quality work on time, very professional and collaborative. A reliable team player.",
     },
   ];
 
   return (
     <PageWrapper>
-      <div className="w-full min-h-screen mt-[26%] lg:mt-[7%] md:mt-[13%] font-mono ">
-        <div className="dark:bg-gray-900 rounded-b-[20%]">
-          <div className="bg-gray-100 dark:bg-gray-900">
-            {/* ===== HERO SECTION ===== */}
-            <div className="bg-gradient-to-t from-blue-600 to-white dark:from-gray-800  dark:to-gray-800 border-b-4  dark:border-gray-600 flex flex-col md:flex-row items-center justify-between p-6 sm:p-10 lg:p-12 max-w-8xl mx-auto gap-8 md:gap-16 rounded-b-[18%] transition-colors duration-300">
-              {/* Text Section */}
-              <div className="flex-1 text-center md:text-left">
-                <h6 className="font-semibold text-indigo-600 dark:text-indigo-400 text-sm sm:text-base uppercase tracking-wide">
-                  | Welcome to VK Techs
-                </h6>
-                <h2 className="text-gray-900 dark:text-white font-extrabold text-2xl sm:text-3xl lg:text-4xl mt-3 mb-4 leading-snug">
-                  Building Modern & Scalable <br className="hidden sm:block" />{" "}
-                  Web & Mobile Experiences
-                </h2>
-                <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
-                  I'm a passionate{" "}
-                  <span className="text-indigo-600 dark:text-indigo-400 font-semibold">
-                    Full Stack Developer
-                  </span>{" "}
-                  specializing in MERN stack (MongoDB, Express.js, React.js,
-                  Node.js), React Native, Logo Designing, and use of AI Tools. I
-                  create high-performance, responsive applications with clean
-                  UI/UX, secure backend APIs, authentication, payment
-                  integrations, and cloud deployment.
-                </p>
-                <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed mb-4">
-                  My work focuses on turning complex problems into intuitive
-                  digital solutions. Whether it's building scalable web apps,
-                  integrating APIs, or creating mobile-first designs, I aim for
-                  clean, maintainable, and efficient code.
-                </p>
-                <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
-                  <span className="text-indigo-600 dark:text-indigo-400 font-medium">
-                    Skills & Technologies I work with:
-                  </span>{" "}
-                  React.js, Redux, Node.js, Express.js, MongoDB, React Native,
-                  Tailwind CSS, Firebase, Stripe, PayPal, AWS, Git & GitHub.
-                </p>
+      <div className="w-full min-h-screen">
+        {/* ===== HERO ===== */}
+        <section className="relative min-h-screen flex items-center overflow-hidden">
+          {/* Background gradient orbs */}
+          <div className="absolute top-20 left-10 w-72 h-72 bg-accent/20 rounded-full blur-[100px] animate-float" />
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-pink-500/10 rounded-full blur-[120px] animate-float" style={{ animationDelay: '3s' }} />
 
-                <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mb-6">
-                  <button
-                    onClick={() => navigate("/contact-me")}
-                    className="bg-indigo-600 dark:bg-indigo-700 px-6 py-3 rounded-full text-white font-semibold hover:bg-indigo-500 dark:hover:bg-indigo-600 shadow-md transition transform hover:-translate-y-1 hover:scale-105 flex items-center justify-center"
-                  >
-                    <FaArrowRight className="mr-2" /> Contact Me
-                  </button>
-                  <button
-                    onClick={() => navigate("/about")}
-                    className="bg-orange-500 dark:bg-orange-600 px-6 py-3 rounded-full text-white font-semibold hover:bg-orange-400 dark:hover:bg-orange-500 shadow-md transition transform hover:-translate-y-1 hover:scale-105 flex items-center justify-center"
-                  >
-                    <FaUser className="mr-2" /> About Me
-                  </button>
-                  <button
-                    onClick={handleChatWithUs}
-                    className="bg-green-600 dark:bg-green-700 px-6 py-3 rounded-full text-white font-semibold hover:bg-green-500 dark:hover:bg-green-600 shadow-md transition transform hover:-translate-y-1 hover:scale-105 flex items-center justify-center"
-                  >
-                    <FaEnvelope className="mr-2" /> Mail Me
-                  </button>
-                </div>
+          <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-32 flex flex-col lg:flex-row items-center gap-12 lg:gap-20 w-full">
+            {/* Text */}
+            <div className="flex-1 text-center lg:text-left animate-fade-up">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 mb-6">
+                <img src={dhLogo} alt="Delivery Hero" className="h-4 w-auto" />
+                <span className="text-sm font-medium text-accent">Working Student @ Delivery Hero</span>
               </div>
 
-              {/* Image Section */}
-              <div className="flex flex-col items-center justify-center w-full md:w-1/3">
-                <img
-                  src={placeholderImage}
-                  alt="Vikash Verma"
-                  className="w-48 sm:w-52 md:w-64 lg:w-72 h-auto rounded-full shadow-2xl max-w-full border-[3px]  dark:border-gray-500 transition-transform duration-300 hover:scale-105"
-                />
-                <span className="mt-4 text-xl sm:text-xl lg:text-3xl font-semibold text-slate-900 dark:text-slate-100 font-serif">
-                  VIKASH VERMA
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 dark:text-white mb-4 leading-[1.1]">
+                Hi, I'm{" "}
+                <span className="gradient-text">Vikash Verma</span>
+              </h1>
+
+              <div className="h-10 mb-6">
+                <span className="text-xl sm:text-2xl font-mono text-gray-500 dark:text-gray-400">
+                  {typedText}
+                  <span className="animate-pulse text-accent">|</span>
                 </span>
-                <span className="text-sm sm:text-base text-gray-700 dark:text-gray-300 mt-1 font-light">
-                  Full Stack Developer
-                </span>
+              </div>
+
+              <p className="text-gray-600 dark:text-gray-400 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed mb-8">
+                Building modern, scalable web experiences with the MERN stack and beyond.
+                Pursuing M.Sc. Software Engineering in Berlin while shipping production code
+                at Delivery Hero.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+                <button
+                  onClick={() => navigate("/contact-me")}
+                  className="group flex items-center justify-center gap-2 bg-accent hover:bg-accent-dark text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:shadow-lg hover:shadow-accent/25"
+                >
+                  Let's Connect
+                  <FaArrowRight className="text-sm transition-transform duration-300 group-hover:translate-x-1" />
+                </button>
+                <button
+                  onClick={() => navigate("/about")}
+                  className="flex items-center justify-center gap-2 bg-gray-100 dark:bg-surface hover:bg-gray-200 dark:hover:bg-surface-light text-gray-700 dark:text-gray-300 px-6 py-3 rounded-xl font-medium transition-all duration-300"
+                >
+                  <FaUser className="text-sm" /> About Me
+                </button>
+                <button
+                  onClick={handleMail}
+                  className="flex items-center justify-center gap-2 border border-gray-200 dark:border-white/10 hover:border-accent dark:hover:border-accent text-gray-700 dark:text-gray-300 hover:text-accent px-6 py-3 rounded-xl font-medium transition-all duration-300"
+                >
+                  <FaEnvelope className="text-sm" /> Mail Me
+                </button>
               </div>
             </div>
 
-            {/* ===== SKILLS SECTION ===== */}
-            <div className="py-16 px-6 sm:px-10 lg:px-16 bg-gray-100 dark:bg-gray-900 mx-auto rounded-b-[12%] border-b-4 lg:rounded-b-[20%] border-indigo-600 rounded-t-[18%]">
-              <div className="max-w-6xl mx-auto">
-                <h3 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-12 text-center text-gray-900 dark:text-white">
-                  My{" "}
-                  <span className="text-indigo-600 dark:text-indigo-400">
-                    Skills
-                  </span>{" "}
-                  & Expertise
-                </h3>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {advantages.map((item, index) => (
-                    <div
-                      key={index}
-                      className="group relative p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transform transition duration-500 hover:-translate-y-2"
-                    >
-                      <div className="absolute -top-6 -right-6 w-24 h-24 rounded-full bg-gradient-to-br from-indigo-100 to-blue-600 dark:from-indigo-800 dark:to-gray-700 opacity-20 pointer-events-none"></div>
-                      <span className="text-4xl flex items-center justify-center border-2 border-indigo-600 dark:border-indigo-400 rounded-full h-16 w-16 mb-4 transition-transform duration-300 group-hover:scale-110">
-                        {item.icon}
-                      </span>
-                      <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2">
-                        {item.title}
-                      </h3>
-                      <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base">
-                        {item.description}
-                      </p>
-                    </div>
-                  ))}
-                </div>
+            {/* Profile Image */}
+            <div className="flex-shrink-0 animate-fade-up" style={{ animationDelay: '0.3s' }}>
+              <div className="relative">
+                <div className="absolute -inset-1 bg-gradient-to-br from-accent via-purple-400 to-pink-400 rounded-full blur-md opacity-40 animate-pulse-glow" />
+                <img
+                  src={profileImage}
+                  alt="Vikash Verma"
+                  className="relative w-56 sm:w-64 lg:w-80 h-56 sm:h-64 lg:h-80 rounded-full object-cover shadow-2xl border-2 border-white/10"
+                />
+              </div>
+              <div className="text-center mt-5">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white tracking-tight">Vikash Verma</h3>
+                <p className="text-sm text-gray-500 dark:text-gray-400 font-mono">Berlin, Germany</p>
               </div>
             </div>
           </div>
+        </section>
 
-          {/* ===== FEATURED PROJECTS ===== */}
-          <div className="py-16 px-6 sm:px-10 lg:px-16 max-w-7xl mx-auto ">
-            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-12 text-center text-gray-900 dark:text-white">
-              Featured{" "}
-              <span className="text-indigo-600 dark:text-indigo-400">
-                Projects
-              </span>
-            </h3>
+        {/* ===== SKILLS ===== */}
+        <section ref={skillsRef} className="reveal py-24 px-6 sm:px-10 lg:px-16">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <span className="text-sm font-mono text-accent tracking-widest uppercase">What I Do</span>
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mt-3">
+                Skills & Expertise
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 stagger-children">
+              {skills.map((item, index) => (
+                <div
+                  key={index}
+                  className="glass-card p-6 hover-lift group cursor-default"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-accent/10 text-accent flex items-center justify-center mb-4 group-hover:bg-accent group-hover:text-white transition-all duration-300">
+                    {item.icon}
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ===== FEATURED PROJECTS ===== */}
+        <section ref={projectsRef} className="reveal py-24 px-6 sm:px-10 lg:px-16 bg-gray-50/50 dark:bg-surface/30">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <span className="text-sm font-mono text-accent tracking-widest uppercase">Portfolio</span>
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mt-3">
+                Featured Projects
+              </h2>
+            </div>
 
             <Swiper
               modules={[Navigation, Pagination]}
-              spaceBetween={30}
+              spaceBetween={20}
               slidesPerView={1}
               navigation
               pagination={{ clickable: true }}
@@ -242,22 +265,19 @@ export default function Home() {
                 768: { slidesPerView: 2 },
                 1024: { slidesPerView: 3 },
               }}
-              className="pb-12"
+              className="pb-14"
             >
               {projects.map((proj, idx) => (
                 <SwiperSlide key={idx} className="!h-auto flex">
-                  <div className="p-6 bg-white dark:bg-gray-700 rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 w-full flex flex-col">
+                  <div className="glass-card p-6 hover-lift w-full flex flex-col">
                     <div className="flex-grow">
-                      <h4 className="text-xl font-semibold mb-2 text-gray-800 dark:text-white">
+                      <h4 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">
                         {proj.name}
                       </h4>
-                      <p className="text-gray-600 dark:text-gray-300 mb-2 min-h-[60px]">
+                      <p className="text-sm text-gray-500 dark:text-gray-400 mb-4 leading-relaxed min-h-[60px]">
                         {proj.description}
                       </p>
-                      <p className="text-sm text-red-400 mb-2 min-h-[24px]">
-                        {proj.note || ""}
-                      </p>
-                      <p className="text-gray-500 dark:text-gray-400 text-sm mb-4 min-h-[40px]">
+                      <p className="text-xs font-mono text-gray-400 dark:text-gray-500 mb-4">
                         {proj.tech}
                       </p>
                     </div>
@@ -265,87 +285,113 @@ export default function Home() {
                       href={proj.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline flex items-center mt-auto"
+                      className="inline-flex items-center gap-1.5 text-sm text-accent font-medium hover:gap-3 transition-all duration-300 mt-auto"
                     >
-                      View Project <FaArrowRight className="ml-1" />
+                      View Project <FaArrowRight className="text-xs" />
                     </a>
                   </div>
                 </SwiperSlide>
               ))}
             </Swiper>
-          </div>
 
-          {/* ===== VIDEO DEMO ===== */}
-          <div className="py-16 px-6 sm:px-10 lg:px-16 max-w-8xl mx-auto flex justify-center">
-            <video
-              src={demoVideo}
-              controls
-              autoPlay
-              loop
-              muted
-              className="w-full sm:w-4/5 md:w-3/4 lg:w-2/3 rounded-2xl shadow-2xl"
-            />
+            <div className="text-center mt-4">
+              <button
+                onClick={() => navigate("/projects")}
+                className="text-sm text-gray-500 dark:text-gray-400 hover:text-accent font-medium transition-colors duration-300"
+              >
+                View all projects →
+              </button>
+            </div>
           </div>
+        </section>
 
-          {/* ===== TESTIMONIALS ===== */}
-          <div className="py-16 px-6 sm:px-10 lg:px-16 max-w-8xl mx-auto rounded-t-[20%] border-t-4 border-indigo-600">
-            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-12 text-center text-gray-900 dark:text-white">
-              What People Say
-            </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+        {/* ===== VIDEO DEMO ===== */}
+        <section ref={videoRef} className="reveal py-24 px-6 sm:px-10 lg:px-16">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <span className="text-sm font-mono text-accent tracking-widest uppercase">In Action</span>
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mt-3">
+                What I Do
+              </h2>
+            </div>
+            <div className="gradient-border">
+              <video
+                src={demoVideo}
+                controls
+                autoPlay
+                loop
+                muted
+                className="w-full rounded-2xl shadow-2xl shadow-accent/5"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* ===== TESTIMONIALS ===== */}
+        <section ref={testimonialsRef} className="reveal py-24 px-6 sm:px-10 lg:px-16 bg-gray-50/50 dark:bg-surface/30">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-16">
+              <span className="text-sm font-mono text-accent tracking-widest uppercase">Testimonials</span>
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mt-3">
+                What People Say
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {testimonials.map((t, idx) => (
                 <div
                   key={idx}
-                  className="p-6 bg-white dark:bg-gray-700 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-2xl transform hover:-translate-y-2"
+                  className="glass-card p-8 hover-lift"
                 >
-                  <p className="text-gray-700 dark:text-gray-300 mb-4">
-                    "{t.feedback}"
+                  <div className="text-3xl text-accent/30 mb-4 font-serif">"</div>
+                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6 text-[15px]">
+                    {t.feedback}
                   </p>
-                  <p className="font-semibold text-gray-800 dark:text-white">
-                    {t.name}
-                  </p>
-                  <p className="text-gray-500 dark:text-gray-400 text-sm">
-                    {t.role}
-                  </p>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent font-bold text-sm">
+                      {t.name.charAt(0)}
+                    </div>
+                    <div>
+                      <p className="font-semibold text-sm text-gray-900 dark:text-white">{t.name}</p>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">{t.role}</p>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
           </div>
+        </section>
 
-          {/* ===== CTA ===== */}
-          <div className="py-16 px-6 sm:px-10 lg:px-16 bg-gradient-to-b from-indigo-500 to-gray-200 dark:from-gray-800 dark:to-gray-800 rounded-t-[20%] border-t-4  dark:border-gray-600 text-center text-white shadow-md">
-            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-6">
-              Ready to Collaborate?
-            </h3>
-            <p className="mb-6 text-white/90">
-              Let’s build something amazing together. Get in touch!
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <button
-                onClick={() => navigate("/contact-me")}
-                className="bg-indigo-600 dark:bg-indigo-700 px-6 py-3 rounded-full text-white font-semibold hover:bg-indigo-500 dark:hover:bg-indigo-600 shadow-md transition transform hover:-translate-y-1 hover:scale-105 flex items-center justify-center"
-              >
-                <FaArrowRight className="mr-2" /> Contact Me
-              </button>
-              <button
-                onClick={() => navigate("/about")}
-                className="bg-orange-500 dark:bg-orange-600 px-6 py-3 rounded-full text-white font-semibold hover:bg-orange-400 dark:hover:bg-orange-500 shadow-md transition transform hover:-translate-y-1 hover:scale-105 flex items-center justify-center"
-              >
-                <FaUser className="mr-2" /> About Me
-              </button>
-              <button
-                onClick={handleChatWithUs}
-                className="bg-green-600 dark:bg-green-700 px-6 py-3 rounded-full text-white font-semibold hover:bg-green-500 dark:hover:bg-green-600 shadow-md transition transform hover:-translate-y-1 hover:scale-105 flex items-center justify-center"
-              >
-                <FaEnvelope className="mr-2" /> Mail Me
-              </button>
+        {/* ===== CTA ===== */}
+        <section ref={ctaRef} className="reveal py-24 px-6 sm:px-10 lg:px-16">
+          <div className="max-w-3xl mx-auto text-center">
+            <div className="relative glass-card p-12 sm:p-16 overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-accent via-purple-400 to-pink-400" />
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                Ready to Collaborate?
+              </h2>
+              <p className="text-gray-500 dark:text-gray-400 mb-8 max-w-md mx-auto">
+                Let's build something amazing together. I'm always open to new opportunities and interesting projects.
+              </p>
+              <div className="flex flex-col sm:flex-row justify-center gap-3">
+                <button
+                  onClick={() => navigate("/contact-me")}
+                  className="group flex items-center justify-center gap-2 bg-accent hover:bg-accent-dark text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:shadow-lg hover:shadow-accent/25"
+                >
+                  Get in Touch <FaArrowRight className="text-sm group-hover:translate-x-1 transition-transform" />
+                </button>
+                <button
+                  onClick={handleMail}
+                  className="flex items-center justify-center gap-2 border border-gray-200 dark:border-white/10 hover:border-accent text-gray-700 dark:text-gray-300 hover:text-accent px-6 py-3 rounded-xl font-medium transition-all duration-300"
+                >
+                  <FaEnvelope className="text-sm" /> Send Email
+                </button>
+              </div>
             </div>
           </div>
+        </section>
 
-          {/* ===== FOOTER ===== */}
-          <Footer />
-
-        </div>
+        <Footer />
       </div>
     </PageWrapper>
   );

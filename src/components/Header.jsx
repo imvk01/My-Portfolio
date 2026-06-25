@@ -1,89 +1,107 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, Sun, Moon } from "lucide-react";
+import { Menu, Sun, Moon, Download } from "lucide-react";
 import MobileNavbar from "./MobileNavbar";
+import resumeFile from "./download/Jass-CV.pdf";
+import { useDarkMode } from "../DarkModeContext";
 import logo from "./logo/logo.jpg";
-import resumeFile from "./download/Vikash-CV.pdf";
-import { useDarkMode } from "../DarkModeContext"; // Import your context
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
-  const { darkMode, toggleDarkMode } = useDarkMode(); // Use context
+  const { darkMode, toggleDarkMode } = useDarkMode();
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navLinks = [
     { name: "About", path: "/about" },
     { name: "Projects", path: "/projects" },
     { name: "Recommendations", path: "/recommendation" },
-    { name: "Contact Me", path: "/contact-me" },
+    { name: "Contact", path: "/contact-me" },
   ];
 
   return (
-    <header className="fixed top-0 left-0 w-full bg-slate-100 dark:bg-gray-900 shadow-md z-50 backdrop-blur-2xl transition-colors duration-300">
-      {/* Mobile Navbar */}
+    <header
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
+        scrolled
+          ? "bg-white/70 dark:bg-custom-background-dark/80 backdrop-blur-2xl shadow-lg shadow-black/5 dark:shadow-black/20 py-2"
+          : "bg-transparent py-4"
+      }`}
+    >
       <MobileNavbar isOpen={isOpen} setIsOpen={setIsOpen} />
 
-      {/* Header Main */}
-      <div className="flex justify-between items-center max-w-7xl mx-auto p-3 md:px-10">
-        {/* Logo */}
-        <Link to="/" className="flex items-center">
-          <img
+      <div className="flex justify-between items-center max-w-7xl mx-auto px-5 md:px-10">
+        {/* Logo / Name */}
+        <Link to="/" className="flex items-center gap-3 group">
+        <img
             src={logo}
             alt="Vikash Verma Logo"
-            className="w-24 h-24 object-scale-down rounded-full border border-gray-300 dark:border-gray-600 shadow-xl transition-colors duration-300"
+            className="w-20 h-20 object-scale-down rounded-full border border-gray-300 dark:border-gray-600 shadow-xl transition-colors duration-300"
           />
+          <span className="text-xl font-bold tracking-tight text-gray-900 dark:text-white group-hover:text-accent transition-colors duration-300">
+            VK<span className="text-accent">.</span>
+          </span>
         </Link>
 
-        {/* Mobile / Medium Menu Button + Dark Mode */}
+        {/* Mobile controls */}
         <div className="flex items-center gap-3 lg:hidden">
-          {/* Dark Mode Toggle for Mobile */}
           <button
             onClick={toggleDarkMode}
-            className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-black dark:text-white transition-colors duration-300"
+            className="p-2.5 rounded-xl bg-gray-100 dark:bg-surface text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-surface-light transition-all duration-300"
+            aria-label="Toggle dark mode"
           >
-            {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+            {darkMode ? <Sun size={18} /> : <Moon size={18} />}
           </button>
 
-          {/* Hamburger Menu */}
           <button
-            className="text-gray-800 dark:text-gray-200"
+            className="p-2.5 rounded-xl bg-gray-100 dark:bg-surface text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-surface-light transition-all duration-300"
             onClick={() => setIsOpen(true)}
+            aria-label="Open menu"
           >
-            <Menu size={28} />
+            <Menu size={20} />
           </button>
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-4 font-semibold text-gray-800 dark:text-gray-200 transition-colors duration-300">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              to={link.path}
-              className={`transition-transform hover:scale-105 uppercase font-mono ${
-                location.pathname === link.path
-                  ? "text-indigo-500 dark:text-indigo-400"
-                  : ""
-              }`}
-            >
-              {link.name}
-            </Link>
-          ))}
+        <nav className="hidden lg:flex items-center gap-1">
+          {navLinks.map((link) => {
+            const isActive = location.pathname === link.path;
+            return (
+              <Link
+                key={link.name}
+                to={link.path}
+                className={`relative px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 ${
+                  isActive
+                    ? "text-accent bg-accent/10"
+                    : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-surface"
+                }`}
+              >
+                {link.name}
+              </Link>
+            );
+          })}
 
-          {/* Download CV + Dark Mode Toggle */}
-          <div className="flex items-center gap-2 ml-4">
+          <div className="flex items-center gap-2 ml-4 pl-4 border-l border-gray-200 dark:border-white/10">
             <a
               href={resumeFile}
-              download="Vikash_Resume.pdf"
-              className="bg-blue-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-full transition-transform hover:scale-105 font-light font-mono"
+              download="Jaskaran_Singh_CV.pdf"
+              className="flex items-center gap-2 bg-accent hover:bg-accent-dark text-white px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 hover:shadow-lg hover:shadow-accent/25"
             >
-              Download CV
+              <Download size={15} />
+              Resume
             </a>
 
             <button
-              onClick={toggleDarkMode} // Use context toggle
-              className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-black dark:text-white transition-colors duration-300"
+              onClick={toggleDarkMode}
+              className="p-2.5 rounded-xl bg-gray-100 dark:bg-surface text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-surface-light transition-all duration-300"
+              aria-label="Toggle dark mode"
             >
-              {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+              {darkMode ? <Sun size={18} /> : <Moon size={18} />}
             </button>
           </div>
         </nav>
