@@ -1,7 +1,7 @@
 import React from "react";
 import { X, ArrowRight } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import resumeFile from "./download/Jass-CV.pdf";
+import resumeFile from "./download/Vikash-CV.pdf";
 import { useDarkMode } from "../DarkModeContext";
 
 function MobileNavbar({ isOpen, setIsOpen }) {
@@ -69,7 +69,7 @@ function MobileNavbar({ isOpen, setIsOpen }) {
           <div className="pt-4 mt-4 border-t border-gray-100 dark:border-white/5">
             <a
               href={resumeFile}
-              download="Jaskaran_Singh_CV.pdf"
+              download="Vikash_CV.pdf"
               onClick={() => setIsOpen(false)}
               className="flex items-center justify-center gap-2 bg-accent hover:bg-accent-dark text-white px-5 py-3 rounded-xl text-sm font-semibold transition-all duration-300 shadow-lg shadow-accent/20"
             >
