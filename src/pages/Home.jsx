@@ -311,7 +311,7 @@ export default function Home() {
             <div className="text-center mb-12">
               <span className="text-sm font-mono text-accent tracking-widest uppercase">In Action</span>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mt-3">
-                What I Do
+                How I look on Work
               </h2>
             </div>
             <div className="gradient-border">
