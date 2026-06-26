@@ -34,7 +34,7 @@ function MobileNavbar({ isOpen, setIsOpen }) {
         {/* Header */}
         <div className="flex justify-between items-center p-6 border-b border-gray-100 dark:border-white/5">
           <span className="text-lg font-bold text-gray-900 dark:text-white">
-            JS<span className="text-accent">.</span>
+            VK<span className="text-accent">.</span>
           </span>
           <button
             onClick={() => setIsOpen(false)}
