@@ -1,9 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import {
-  FaExternalLinkAlt,
-  FaGithub,
-  FaLock,
-} from "react-icons/fa";
+import { FaExternalLinkAlt, FaGithub, FaLock } from "react-icons/fa";
 import { X } from "lucide-react";
 import Footer from "../components/Footer";
 
@@ -28,6 +24,15 @@ export default function Projects() {
 
   const projects = [
     {
+      name: "Avnoor Jewels",
+      description:
+        "Business website for a jewelry brand featuring product showcases, brand storytelling, and a responsive design tailored for an elegant shopping experience.",
+      tech: ["React", "Vite", "TypeScript", "Node.js"],
+      live: "https://www.avnoorjewels.in/",
+      // github: "https://github.com/imvk01/Keycloak-IAM-Platform",
+      privateRepo: true,
+    },
+    {
       name: "Keycloak IAM Platform",
       description:
         "Simplified Keycloak-inspired IAM platform with authentication, user and organization management, invitations, and configurable auth/MFA settings.",
@@ -36,11 +41,19 @@ export default function Projects() {
       github: "https://github.com/imvk01/Keycloak-IAM-Platform",
       privateRepo: false,
     },
+
     {
       name: "CareerConnect",
       description:
         "Full-stack job portal with resume uploads, referral system, premium payment plans, and secure authentication.",
-      tech: ["React", "Node.js", "Express", "MongoDB", "PayPal Autopay", "Tailwind"],
+      tech: [
+        "React",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "PayPal Autopay",
+        "Tailwind",
+      ],
       live: "https://www.carrerconnect.com/",
       github: null,
       privateRepo: true,
@@ -84,7 +97,8 @@ export default function Projects() {
     },
     {
       name: "Amazon Clone",
-      description: "Amazon clone built for learning the fundamentals of full-stack web development.",
+      description:
+        "Amazon clone built for learning the fundamentals of full-stack web development.",
       tech: ["React", "Express", "Node", "MongoDB"],
       live: "https://amazon-vikashverma.netlify.app/",
       github: "https://github.com/imvk01/Amazon-vikash",
@@ -92,7 +106,8 @@ export default function Projects() {
     },
     {
       name: "Tinder Clone",
-      description: "Tinder clone built for learning the fundamentals of full-stack web development.",
+      description:
+        "Tinder clone built for learning the fundamentals of full-stack web development.",
       tech: ["React", "Express", "Node", "MongoDB"],
       live: "https://tinder-vikashverma.netlify.app/",
       github: "https://github.com/imvk01/Tinder-clone",
@@ -100,7 +115,8 @@ export default function Projects() {
     },
     {
       name: "Scribbler Posts",
-      description: "Blog-style project built using vanilla HTML, CSS and JavaScript.",
+      description:
+        "Blog-style project built using vanilla HTML, CSS and JavaScript.",
       tech: ["HTML", "CSS", "JavaScript"],
       live: "https://scribbler-posts.netlify.app/",
       github: "https://github.com/imvk01/Scribbler-Project",
@@ -113,17 +129,23 @@ export default function Projects() {
       <div className="min-h-screen bg-custom-background dark:bg-custom-background-dark pt-28 sm:pt-32 pb-16 px-6 lg:px-16">
         {/* HERO */}
         <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-up">
-          <span className="text-sm font-mono text-accent tracking-widest uppercase">Portfolio</span>
+          <span className="text-sm font-mono text-accent tracking-widest uppercase">
+            Portfolio
+          </span>
           <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mt-3 mb-4">
             My <span className="gradient-text">Projects</span>
           </h1>
           <p className="text-gray-500 dark:text-gray-400 text-lg leading-relaxed">
-            A collection of projects exploring full-stack development, real-world problem solving, and production deployments.
+            A collection of projects exploring full-stack development,
+            real-world problem solving, and production deployments.
           </p>
         </div>
 
         {/* PROJECT GRID */}
-        <div ref={gridRef} className="reveal grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-7xl mx-auto stagger-children">
+        <div
+          ref={gridRef}
+          className="reveal grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-7xl mx-auto stagger-children"
+        >
           {projects.map((project, index) => (
             <div
               key={index}
@@ -141,7 +163,9 @@ export default function Projects() {
               </p>
 
               {project.note && (
-                <p className="text-xs text-amber-500 dark:text-amber-400 mb-3 relative z-10">{project.note}</p>
+                <p className="text-xs text-amber-500 dark:text-amber-400 mb-3 relative z-10">
+                  {project.note}
+                </p>
               )}
 
               <div className="flex flex-wrap gap-1.5 mb-5 relative z-10">
@@ -210,8 +234,12 @@ export default function Projects() {
                 Private Repository
               </h3>
               <p className="text-gray-500 dark:text-gray-400 text-sm mb-6 leading-relaxed">
-                The repository for <strong className="text-gray-900 dark:text-white">{selectedProject}</strong> is
-                private due to client confidentiality. Access can be provided upon request.
+                The repository for{" "}
+                <strong className="text-gray-900 dark:text-white">
+                  {selectedProject}
+                </strong>{" "}
+                is private due to client confidentiality. Access can be provided
+                upon request.
               </p>
               <button
                 onClick={() => setSelectedProject(null)}

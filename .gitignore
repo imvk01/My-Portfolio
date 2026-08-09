@@ -1,1 +1,51 @@
-node_modules
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Testing
+coverage/
+
+# Production build
+build/
+dist/
+out/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+logs/
+*.log
+
+# Editor/IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# TypeScript
+*.tsbuildinfo
+
+# Package manager locks (optional — remove if you want to commit these)
+# package-lock.json
+# yarn.lock
+
+# AWS / deployment
+.aws/
+.serverless/
+
+# Misc
+*.pem
+.cache/

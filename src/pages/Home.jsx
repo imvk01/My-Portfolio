@@ -99,10 +99,10 @@ export default function Home() {
 
   const projects = [
     {
-      name: "Keycloak IAM Platform",
-      description: "Simplified IAM platform with authentication, user & org management, invitations, and configurable MFA settings.",
-      tech: "React, TypeScript, Node.js, MongoDB, JWT",
-      link: "https://keycloak-iam-platform.onrender.com",
+      name: "Avnoor Jewels",
+      description: "Business website for a jewelry brand featuring product showcases, brand storytelling, and a responsive design tailored for an elegant shopping experience.",
+      tech: "React, Vite, TypeScript, Node.js",
+      link: "https://www.avnoorjewels.in/",
     },
     {
       name: "CareerConnect",
@@ -111,16 +111,16 @@ export default function Home() {
       link: "https://www.carrerconnect.com/",
     },
     {
-      name: "NeuroRevive 360",
-      description: "Health & wellness platform for neuroscience-based rehabilitation with appointments and user management.",
-      tech: "React.js, Node.js, MongoDB, Firebase, Tailwind CSS",
-      link: "https://neuro-revive360.vercel.app/",
-    },
-    {
       name: "Som Motor Records",
       description: "Real-time vehicle maintenance tracking system with authentication, notifications, and dashboards.",
       tech: "React.js, Node.js, Socket.io, MongoDB, Tailwind CSS",
       link: "https://som-moter.netlify.app/",
+    },
+    {
+      name: "NeuroRevive 360",
+      description: "Health & wellness platform for neuroscience-based rehabilitation with appointments and user management.",
+      tech: "React.js, Node.js, MongoDB, Firebase, Tailwind CSS",
+      link: "https://neuro-revive360.vercel.app/",
     },
   ];
 
