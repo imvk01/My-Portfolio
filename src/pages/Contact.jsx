@@ -83,7 +83,7 @@ function Contact() {
       bgColor: "bg-green-500",
       action: () => {
         const phone = "+919354040507";
-        const message = "Hi Jass, I got your reference from your portfolio website.";
+        const message = "Hi Vikash, I got your reference from your portfolio website.";
         window.open(`https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(message)}`, "_blank");
       },
       label: "Chat Now",
@@ -97,15 +97,15 @@ function Contact() {
       action: () => window.open("https://www.instagram.com/imvk._", "_blank"),
       label: "Follow",
     },
-    // {
-    //   icon: <FaFacebook className="w-6 h-6" />,
-    //   title: "Facebook",
-    //   detail: "Connect with me",
-    //   color: "text-blue-700",
-    //   bgColor: "bg-blue-700",
-    //   action: () => window.open("https://www.facebook.com/profile.php?id=100012011164238", "_blank"),
-    //   label: "Visit",
-    // },
+    {
+      icon: <FaFacebook className="w-6 h-6" />,
+      title: "Facebook",
+      detail: "Connect with me",
+      color: "text-blue-700",
+      bgColor: "bg-blue-700",
+      action: () => window.open("https://www.facebook.com/profile.php?id=100012011164238", "_blank"),
+      label: "Visit",
+    },
     {
       icon: <FaSnapchatGhost className="w-6 h-6" />,
       title: "Snapchat",
