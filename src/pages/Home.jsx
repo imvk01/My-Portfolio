@@ -128,7 +128,7 @@ export default function Home() {
     {
       name: "Abhimanyu Sharma",
       role: "Internship Mentor",
-      feedback: "Jass is a dedicated developer with excellent full-stack skills and a strong eye for clean architecture.",
+      feedback: "Vikash is a dedicated developer with excellent full-stack skills and a strong eye for clean architecture.",
     },
     {
       name: "Shamneesh",
