@@ -135,14 +135,16 @@
   color: #8b5cf6 !important;
   background: rgba(139, 92, 246, 0.1);
   border-radius: 50%;
-  width: 44px !important;
-  height: 44px !important;
+  width: 32px !important;
+  height: 32px !important;
+  margin-top: -16px !important;
   backdrop-filter: blur(8px);
 }
-.swiper-button-next::after,
-.swiper-button-prev::after {
-  font-size: 18px !important;
-  font-weight: 700;
+/* Swiper 12 draws the arrow as an SVG */
+.swiper-button-next .swiper-navigation-icon,
+.swiper-button-prev .swiper-navigation-icon {
+  width: 8px !important;
+  height: 14px !important;
 }
 .swiper-pagination-bullet-active {
   background: #8b5cf6 !important;

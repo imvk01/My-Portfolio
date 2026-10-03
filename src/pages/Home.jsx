@@ -99,22 +99,16 @@ export default function Home() {
 
   const projects = [
     {
+      name: "Som Motor Records",
+      description: "Real-time vehicle maintenance tracking system with authentication, notifications, and dashboards.",
+      tech: "React.js, Node.js, Socket.io, MongoDB, Tailwind CSS",
+      link: "https://som-motor.onrender.com/",
+    },
+    {
       name: "Avnoor Jewels",
       description: "Business website for a jewelry brand featuring product showcases, brand storytelling, and a responsive design tailored for an elegant shopping experience.",
       tech: "React, Vite, TypeScript, Node.js",
       link: "https://www.avnoorjewels.in/",
-    },
-    {
-      name: "CareerConnect",
-      description: "Full-stack job portal with search, filters, resume uploads, referrals, and premium payment options.",
-      tech: "React.js, Node.js, Express.js, MongoDB, Stripe, PayPal",
-      link: "https://www.carrerconnect.com/",
-    },
-    {
-      name: "Som Motor Records",
-      description: "Real-time vehicle maintenance tracking system with authentication, notifications, and dashboards.",
-      tech: "React.js, Node.js, Socket.io, MongoDB, Tailwind CSS",
-      link: "https://som-moter.netlify.app/",
     },
     {
       name: "NeuroRevive 360",
