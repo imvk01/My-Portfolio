@@ -71,9 +71,8 @@ export default function Projects() {
       name: "Som Motor Records",
       description:
         "Real-time vehicle maintenance tracking system with authentication and notification system.",
-      note: "Backend not deployed due to client privacy",
       tech: ["React", "Node.js", "MongoDB", "Socket.io"],
-      live: "https://som-moter.netlify.app/",
+      live: "https://som-motor.onrender.com/",
       github: null,
       privateRepo: true,
     },
