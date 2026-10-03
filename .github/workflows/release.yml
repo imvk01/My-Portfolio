@@ -1,0 +1,21 @@
+# Publishing a GitHub Release moves the `production` branch forward to that release's commit.
+# AWS Amplify watches `production` and builds/deploys it automatically.
+# Rollback: Amplify console → production branch → pick an older build → Redeploy this version.
+name: Deploy on release
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write # to push the production branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: git push origin HEAD:refs/heads/production
