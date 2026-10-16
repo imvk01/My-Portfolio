@@ -1,20 +1,12 @@
 import React, { useEffect, useRef } from "react";
 import profileImage from "./gallery/abc.png";
 import dhLogo from "./gallery/delivery-hero.png";
-import {
-  FaCode,
-  FaServer,
-  FaCloud,
-  FaDatabase,
-  FaGraduationCap,
-  FaLanguage,
-  FaRobot,
-  FaVial,
-} from "react-icons/fa";
+import { FaGraduationCap, FaLanguage } from "react-icons/fa";
 import ueLogo from "./gallery/ue.png";
 import lpuLogo from "./gallery/lpu.png";
 import certificate from "./gallery/certificate.png";
 import Footer from "../components/Footer";
+import TechExpertise from "../components/TechExpertise";
 
 function useReveal() {
   const ref = useRef(null);
@@ -94,29 +86,7 @@ export default function About() {
 
         {/* ===== TECHNICAL EXPERTISE ===== */}
         <div ref={techRef} className="reveal max-w-6xl mx-auto mb-24">
-          <div className="text-center mb-12">
-            <span className="text-sm font-mono text-accent tracking-widest uppercase">Stack</span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mt-3">Technical Expertise</h2>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 stagger-children">
-            {[
-              { icon: <FaCode />, title: "Frontend", desc: "TypeScript, JavaScript (ES6+), React.js, Tailwind CSS, Material UI, Vite, Webpack" },
-              { icon: <FaServer />, title: "Backend & APIs", desc: "Node.js, Express.js, Python, Java, RESTful APIs, JWT, RBAC" },
-              { icon: <FaDatabase />, title: "Databases", desc: "PostgreSQL, MongoDB, MySQL, BigQuery, SQL" },
-              { icon: <FaCloud />, title: "Cloud & DevOps", desc: "AWS (EC2, S3), Docker, GitHub Actions CI/CD, Nginx, Linux, Git" },
-              { icon: <FaRobot />, title: "AI / LLM", desc: "RAG, Vertex AI, Google Gemini API, Claude API" },
-              { icon: <FaVial />, title: "Testing & Practices", desc: "Jest, Postman, Vercel, Figma, Agile/Scrum, Code Reviews, System Design" },
-            ].map((item, i) => (
-              <div key={i} className="glass-card p-6 hover-lift group">
-                <div className="text-accent text-2xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                  {item.icon}
-                </div>
-                <h3 className="font-semibold text-gray-900 dark:text-white mb-2">{item.title}</h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400">{item.desc}</p>
-              </div>
-            ))}
-          </div>
+          <TechExpertise />
         </div>
 
         {/* ===== EXPERIENCE ===== */}
@@ -128,7 +98,7 @@ export default function About() {
 
           <div className="space-y-5">
             {/* Delivery Hero */}
-            <div className="glass-card p-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+            <div className="glass-card p-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 hover-lift">
               <div className="flex-1">
                 <div className="flex items-center gap-2 mb-1">
                   <span className="inline-block w-2 h-2 rounded-full bg-green-400 animate-pulse" />
@@ -163,7 +133,7 @@ export default function About() {
             </div>
 
             {/* Previous Experience */}
-            <div className="glass-card p-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+            <div className="glass-card p-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 hover-lift">
               <div className="flex-1">
                 <h3 className="text-xl font-semibold text-accent mb-1">
                   Full-Stack Developer Intern

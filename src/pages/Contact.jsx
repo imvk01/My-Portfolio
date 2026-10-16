@@ -139,7 +139,7 @@ function Contact() {
               onClick={item.action}
               className="glass-card p-6 hover-lift text-left group cursor-pointer transition-all duration-300"
             >
-              <div className={`${item.color} mb-4 transition-transform duration-300 group-hover:scale-110`}>
+              <div className={`${item.color} mb-4 transition-transform duration-300 group-hover:scale-105`}>
                 {item.icon}
               </div>
               <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-1 flex items-center gap-1">
