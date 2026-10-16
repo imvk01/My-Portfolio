@@ -11,6 +11,7 @@ import {
 } from "react-icons/fa";
 import { FiMail, FiArrowUpRight } from "react-icons/fi";
 import Footer from "../components/Footer";
+import { PaperPlane } from "../components/Illustrations";
 
 function useReveal() {
   const ref = useRef(null);
@@ -121,14 +122,17 @@ function Contact() {
     <>
       <section className="min-h-screen bg-custom-background dark:bg-custom-background-dark pt-28 sm:pt-32 pb-16 px-6 lg:px-20">
         {/* Heading */}
-        <div className="text-center mb-16 animate-fade-up">
+        <div className="max-w-6xl mx-auto mb-16 grid lg:grid-cols-2 gap-10 items-center animate-fade-up">
+          <div className="text-center lg:text-left">
           <span className="text-sm font-mono text-accent tracking-widest uppercase">Contact</span>
           <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mt-3 mb-4">
             Let's <span className="gradient-text">Connect</span>
           </h2>
-          <p className="text-gray-500 dark:text-gray-400 max-w-xl mx-auto text-lg leading-relaxed">
+          <p className="text-gray-500 dark:text-gray-400 max-w-xl mx-auto lg:mx-0 text-lg leading-relaxed">
             I'm open to full-time roles, working student positions, and interesting collaborations. Let's talk!
           </p>
+          </div>
+          <PaperPlane className="w-full max-w-md mx-auto" />
         </div>
 
         {/* Contact Grid */}

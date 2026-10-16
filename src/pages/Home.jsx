@@ -12,6 +12,7 @@ import { Navigation, Pagination } from "swiper/modules";
 import PageWrapper from "../components/PageWrapper";
 import Footer from "../components/Footer";
 import TechExpertise from "../components/TechExpertise";
+import { Rocket as RocketArt, BrowserThumb } from "../components/Illustrations";
 import { Code2, Lightbulb, PenTool, BrainCircuit, FlaskConical, Rocket } from "lucide-react";
 
 import "swiper/css";
@@ -222,7 +223,10 @@ export default function Home() {
             >
               {projects.map((proj, idx) => (
                 <SwiperSlide key={idx} className="!h-auto">
-                  <div className="glass-card p-6 hover-lift w-full h-full flex flex-col">
+                  <div className="glass-card p-6 hover-lift w-full h-full flex flex-col group">
+                    <div className="-mx-2 -mt-2 mb-5 rounded-xl overflow-hidden border border-gray-200/60 dark:border-white/5">
+                      <BrowserThumb variant={idx} className="w-full h-auto block transition-transform duration-500 group-hover:scale-105" />
+                    </div>
                     <div className="flex-grow">
                       <h4 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">
                         {proj.name}
@@ -377,6 +381,7 @@ export default function Home() {
           <div className="max-w-3xl mx-auto text-center">
             <div className="relative glass-card p-12 sm:p-16 overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-accent via-purple-400 to-pink-400" />
+              <RocketArt className="w-32 mx-auto mb-4" />
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
                 Ready to Collaborate?
               </h2>

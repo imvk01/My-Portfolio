@@ -7,6 +7,7 @@ import lpuLogo from "./gallery/lpu.png";
 import certificate from "./gallery/certificate.png";
 import Footer from "../components/Footer";
 import TechExpertise from "../components/TechExpertise";
+import { ChatBubbles, Rocket } from "../components/Illustrations";
 
 function useReveal() {
   const ref = useRef(null);
@@ -219,6 +220,7 @@ export default function About() {
             </h2>
           </div>
           <div className="glass-card p-8 text-center">
+            <ChatBubbles className="w-64 max-w-full mx-auto mb-6" />
             <div className="flex flex-wrap justify-center gap-4">
               {["English (Professional, IELTS B2)", "German (B1)", "Hindi (Native)"].map((lang, i) => (
                 <span
@@ -236,6 +238,7 @@ export default function About() {
         <div ref={ctaRef} className="reveal max-w-3xl mx-auto text-center">
           <div className="relative glass-card p-12 overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-accent via-purple-400 to-pink-400" />
+            <Rocket className="w-32 mx-auto mb-4" />
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
               Let's Build Something Great
             </h2>
