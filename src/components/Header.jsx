@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, Sun, Moon, Download } from "lucide-react";
 import MobileNavbar from "./MobileNavbar";
-import resumeFile from "./download/Vikash-CV.pdf";
+import resumeFile from "./download/Vikash_Resume.pdf";
 import { useDarkMode } from "../DarkModeContext";
 import logo from "./logo/logo.jpg";
 
