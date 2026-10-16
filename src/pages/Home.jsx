@@ -99,6 +99,13 @@ export default function Home() {
 
   const projects = [
     {
+      name: "CareerConnect",
+      description:
+        "Full-stack job portal with resume uploads, referral system, premium payment plans, and secure authentication.",
+      tech: "React, Node.js, Express, MongoDB, PayPal Autopay, Tailwind CSS",
+      link: "https://careerconnect-d5ob.onrender.com/",
+    },
+    {
       name: "Som Motor Records",
       description: "Real-time vehicle maintenance tracking system with authentication, notifications, and dashboards.",
       tech: "React.js, Node.js, Socket.io, MongoDB, Tailwind CSS",
@@ -262,8 +269,8 @@ export default function Home() {
               className="pb-14"
             >
               {projects.map((proj, idx) => (
-                <SwiperSlide key={idx} className="!h-auto flex">
-                  <div className="glass-card p-6 hover-lift w-full flex flex-col">
+                <SwiperSlide key={idx} className="!h-auto">
+                  <div className="glass-card p-6 hover-lift w-full h-full flex flex-col">
                     <div className="flex-grow">
                       <h4 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">
                         {proj.name}

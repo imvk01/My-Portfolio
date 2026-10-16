@@ -54,7 +54,7 @@ export default function Projects() {
         "PayPal Autopay",
         "Tailwind",
       ],
-      live: "https://www.carrerconnect.com/",
+      live: "https://careerconnect-d5ob.onrender.com/",
       github: null,
       privateRepo: true,
     },
