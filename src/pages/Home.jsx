@@ -357,7 +357,6 @@ export default function Home() {
                   key={idx}
                   className="glass-card p-8 hover-lift"
                 >
-                  <div className="text-3xl text-accent/30 mb-4 font-serif">"</div>
                   <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6 text-[15px]">
                     {t.feedback}
                   </p>
@@ -378,14 +377,14 @@ export default function Home() {
 
         {/* ===== CTA ===== */}
         <section ref={ctaRef} className="reveal py-24 px-6 sm:px-10 lg:px-16">
-          <div className="max-w-3xl mx-auto text-center">
+          <div className="max-w-3xl lg:max-w-6xl mx-auto text-center">
             <div className="relative glass-card p-12 sm:p-16 overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-accent via-purple-400 to-pink-400" />
               <RocketArt className="w-32 mx-auto mb-4" />
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
                 Ready to Collaborate?
               </h2>
-              <p className="text-gray-500 dark:text-gray-400 mb-8 max-w-md mx-auto">
+              <p className="text-gray-500 dark:text-gray-400 mb-8 max-w-md lg:max-w-xl mx-auto">
                 Let's build something amazing together. I'm always open to new opportunities and interesting projects.
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-3">

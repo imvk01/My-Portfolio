@@ -235,14 +235,14 @@ export default function About() {
         </div>
 
         {/* ===== CTA ===== */}
-        <div ref={ctaRef} className="reveal max-w-3xl mx-auto text-center">
+        <div ref={ctaRef} className="reveal max-w-3xl lg:max-w-6xl mx-auto text-center">
           <div className="relative glass-card p-12 overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-accent via-purple-400 to-pink-400" />
             <Rocket className="w-32 mx-auto mb-4" />
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
               Let's Build Something Great
             </h2>
-            <p className="text-gray-500 dark:text-gray-400 mb-6">
+            <p className="text-gray-500 dark:text-gray-400 mb-6 max-w-xl mx-auto">
               I'm looking for a full-time Software Engineer role in Germany from February 2027. Open to Werkstudent roles until then.
             </p>
             <a

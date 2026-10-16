@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { FaExternalLinkAlt, FaGithub, FaLock } from "react-icons/fa";
 import { X } from "lucide-react";
 import Footer from "../components/Footer";
-import { Workspace, BrowserThumb } from "../components/Illustrations";
+import { Workspace } from "../components/Illustrations";
 
 function useReveal() {
   const ref = useRef(null);
@@ -156,10 +156,6 @@ export default function Projects() {
             >
               {/* Decorative gradient blob */}
               <div className="absolute -top-12 -right-12 w-32 h-32 bg-accent/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-              <div className="relative z-10 -mx-2 -mt-2 mb-5 rounded-xl overflow-hidden border border-gray-200/60 dark:border-white/5">
-                <BrowserThumb variant={index} className="w-full h-auto block transition-transform duration-500 group-hover:scale-105" />
-              </div>
 
               <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-2 relative z-10">
                 {project.name}
