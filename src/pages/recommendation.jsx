@@ -4,6 +4,7 @@ import rec2 from "./gallery/B.jpg";
 import rec3 from "./gallery/C.jpg";
 import { X } from "lucide-react";
 import Footer from "../components/Footer";
+import { Letters } from "../components/Illustrations";
 
 export default function Recommendations() {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -14,11 +15,17 @@ export default function Recommendations() {
     <>
       <div className="min-h-screen bg-custom-background dark:bg-custom-background-dark pt-28 sm:pt-32 pb-16 px-6 md:px-16">
         {/* Title */}
-        <div className="text-center mb-16 animate-fade-up">
+        <div className="max-w-6xl mx-auto mb-16 grid lg:grid-cols-2 gap-10 items-center animate-fade-up">
+          <div className="text-center lg:text-left">
           <span className="text-sm font-mono text-accent tracking-widest uppercase">References</span>
           <h1 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mt-3">
             My <span className="gradient-text">Recommendations</span>
           </h1>
+          <p className="text-gray-500 dark:text-gray-400 text-lg leading-relaxed mt-4">
+            Letters from the people I've worked and studied with.
+          </p>
+          </div>
+          <Letters className="w-full max-w-md mx-auto" />
         </div>
 
         {/* Image Grid */}

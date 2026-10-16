@@ -1,18 +1,13 @@
 import React, { useEffect, useRef } from "react";
 import profileImage from "./gallery/abc.png";
 import dhLogo from "./gallery/delivery-hero.png";
-import {
-  FaCode,
-  FaServer,
-  FaCloud,
-  FaDatabase,
-  FaGraduationCap,
-  FaLanguage,
-} from "react-icons/fa";
+import { FaGraduationCap, FaLanguage } from "react-icons/fa";
 import ueLogo from "./gallery/ue.png";
 import lpuLogo from "./gallery/lpu.png";
 import certificate from "./gallery/certificate.png";
 import Footer from "../components/Footer";
+import TechExpertise from "../components/TechExpertise";
+import { ChatBubbles, Rocket } from "../components/Illustrations";
 
 function useReveal() {
   const ref = useRef(null);
@@ -34,7 +29,6 @@ export default function About() {
   const techRef = useReveal();
   const expRef = useReveal();
   const eduRef = useReveal();
-  const projectsRef = useReveal();
   const langRef = useReveal();
   const ctaRef = useReveal();
 
@@ -49,9 +43,9 @@ export default function About() {
           </h1>
           <p className="text-gray-500 dark:text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
             I'm <span className="font-semibold text-gray-900 dark:text-white">Vikash Verma</span>,
-            a Full Stack Developer currently working at{" "}
-            <span className="font-semibold text-accent">Delivery Hero</span> as a Working Student
-            while pursuing my M.Sc. in Software Engineering at the University of Europe for Applied Sciences, Berlin.
+            a Full-Stack Software Engineer working at{" "}
+            <span className="font-semibold text-accent">Delivery Hero SE</span> as a Werkstudent
+            while finishing my M.Sc. in Software Engineering at the University of Europe for Applied Sciences, Berlin.
           </p>
         </div>
 
@@ -70,51 +64,30 @@ export default function About() {
 
           <div>
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-1">
-              <span className="gradient-text">Full Stack Developer</span>
+              <span className="gradient-text">Full-Stack Software Engineer</span>
             </h2>
-            <p className="text-sm font-mono text-gray-500 dark:text-gray-400 mb-5">MERN · TypeScript · Cloud</p>
+            <p className="text-sm font-mono text-gray-500 dark:text-gray-400 mb-5">TypeScript · React · Node.js · AWS · AI/LLM</p>
 
             <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
-              I specialize in developing end-to-end web applications using
-              React.js, Node.js, Express.js, and MongoDB. My focus is on writing
-              clean, maintainable code and creating intuitive user experiences.
+              At Delivery Hero, I build AI-driven internal tools with LLMs and RAG, used by 200+
+              stakeholders across brands like foodpanda, talabat, Glovo and PedidosYa.
             </p>
 
             <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
-              At Delivery Hero, I work on production-grade systems, building scalable services
-              and contributing to the frontend ecosystem used by millions of users globally.
+              I also shipped CareerConnect, a subscription-based MERN + TypeScript SaaS platform,
+              end to end: JWT/RBAC, PayPal billing, CI/CD to AWS and 99.9% uptime.
             </p>
 
             <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-              I enjoy solving complex problems and transforming ideas into
-              efficient, secure, and scalable digital solutions.
+              My M.Sc. finishes in February 2027, and I'm looking for a full-time Software Engineer
+              role in Germany from then.
             </p>
           </div>
         </div>
 
         {/* ===== TECHNICAL EXPERTISE ===== */}
         <div ref={techRef} className="reveal max-w-6xl mx-auto mb-24">
-          <div className="text-center mb-12">
-            <span className="text-sm font-mono text-accent tracking-widest uppercase">Stack</span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mt-3">Technical Expertise</h2>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 stagger-children">
-            {[
-              { icon: <FaCode />, title: "Frontend", desc: "React.js, TypeScript, Tailwind CSS, Next.js, Redux" },
-              { icon: <FaServer />, title: "Backend", desc: "Node.js, Express.js, REST APIs, GraphQL, JWT" },
-              { icon: <FaDatabase />, title: "Databases", desc: "MongoDB, PostgreSQL, Mongoose, schema design" },
-              { icon: <FaCloud />, title: "Cloud & DevOps", desc: "AWS EC2, Docker, Nginx, PM2, CI/CD, Firebase" },
-            ].map((item, i) => (
-              <div key={i} className="glass-card p-6 hover-lift group">
-                <div className="text-accent text-2xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                  {item.icon}
-                </div>
-                <h3 className="font-semibold text-gray-900 dark:text-white mb-2">{item.title}</h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400">{item.desc}</p>
-              </div>
-            ))}
-          </div>
+          <TechExpertise />
         </div>
 
         {/* ===== EXPERIENCE ===== */}
@@ -126,30 +99,30 @@ export default function About() {
 
           <div className="space-y-5">
             {/* Delivery Hero */}
-            <div className="glass-card p-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+            <div className="glass-card p-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 hover-lift">
               <div className="flex-1">
                 <div className="flex items-center gap-2 mb-1">
                   <span className="inline-block w-2 h-2 rounded-full bg-green-400 animate-pulse" />
                   <span className="text-xs font-mono text-green-400 uppercase tracking-wider">Current</span>
                 </div>
                 <h3 className="text-xl font-semibold text-accent mb-1">
-                  Working Student — Full Stack Developer
+                  Full-Stack Software Engineer (Werkstudent)
                 </h3>
                 <p className="text-gray-500 dark:text-gray-400 mb-4">
-                  Delivery Hero SE — Berlin, Germany
+                  Delivery Hero SE — Berlin, Germany · June 2026 – Present
                 </p>
                 <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
                   <li className="flex items-start gap-2">
                     <span className="mt-1.5 w-1 h-1 rounded-full bg-accent flex-shrink-0" />
-                    Building and maintaining production-grade full stack features
+                    Co-built DH CapEx Bot (Python, Vertex AI, Gemini, RAG), used by 200+ global stakeholders; cut request drafting time by ~69% and saved 4,000+ hours annually
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="mt-1.5 w-1 h-1 rounded-full bg-accent flex-shrink-0" />
-                    Working with React, TypeScript, Node.js in a large-scale codebase
+                    Rebuilt the Tech Strategy & Operations Command Center in React and TypeScript with RBAC, halving documentation search time for 20+ engineers
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="mt-1.5 w-1 h-1 rounded-full bg-accent flex-shrink-0" />
-                    Collaborating with cross-functional teams in an agile environment
+                    Built the GTC dashboard (React, TypeScript, Looker Studio, BigQuery) with interactive visualizations and automated data-correction workflows; authored and reviewed 25+ PRs
                   </li>
                 </ul>
               </div>
@@ -161,26 +134,26 @@ export default function About() {
             </div>
 
             {/* Previous Experience */}
-            <div className="glass-card p-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+            <div className="glass-card p-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 hover-lift">
               <div className="flex-1">
                 <h3 className="text-xl font-semibold text-accent mb-1">
-                  Full Stack Developer Intern
+                  Full-Stack Developer Intern
                 </h3>
                 <p className="text-gray-500 dark:text-gray-400 mb-4">
-                  UpGrad Campus — Jalandhar, India
+                  UpgradCampus — India · January 2024 – May 2024
                 </p>
                 <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
                   <li className="flex items-start gap-2">
                     <span className="mt-1.5 w-1 h-1 rounded-full bg-accent flex-shrink-0" />
-                    Developed Real Estate Marketplace using MERN stack
+                    Built a multi-tenant real-estate platform on the MERN stack with 10+ core features and RBAC
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="mt-1.5 w-1 h-1 rounded-full bg-accent flex-shrink-0" />
-                    Built scalable REST APIs and integrated payment gateways
+                    Cut unnecessary component re-renders by 40% using React.memo, Context API and code-splitting
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="mt-1.5 w-1 h-1 rounded-full bg-accent flex-shrink-0" />
-                    Conducted code reviews and maintained best practices
+                    Designed and documented 15+ secure REST endpoints in Node.js/Express with JWT auth and validation middleware
                   </li>
                 </ul>
               </div>
@@ -210,7 +183,7 @@ export default function About() {
                   M.Sc. in Software Engineering
                 </h3>
                 <p className="text-gray-500 dark:text-gray-400 text-sm">
-                  University of Europe for Applied Sciences — Berlin, Germany (Current)
+                  University of Europe for Applied Sciences — Berlin, Germany · Expected February 2027
                 </p>
               </div>
               <img
@@ -226,7 +199,7 @@ export default function About() {
                   B.Tech — Computer Science & Engineering
                 </h3>
                 <p className="text-gray-500 dark:text-gray-400 text-sm">
-                  Lovely Professional University, India · CGPA: 7.47
+                  Lovely Professional University, India · 2020 – 2024 · GPA: 7.47/10
                 </p>
               </div>
               <img
@@ -235,28 +208,6 @@ export default function About() {
                 className="w-36 h-14 object-contain bg-white p-2 rounded-xl shadow-sm"
               />
             </div>
-          </div>
-        </div>
-
-        {/* ===== KEY PROJECTS ===== */}
-        <div ref={projectsRef} className="reveal max-w-6xl mx-auto mb-24">
-          <div className="text-center mb-12">
-            <span className="text-sm font-mono text-accent tracking-widest uppercase">Highlights</span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mt-3">Key Projects</h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-5 stagger-children">
-            {[
-              { name: "Keycloak IAM Platform", desc: "Simplified IAM with authentication, user management, invitations, and configurable MFA." },
-              { name: "CareerConnect", desc: "Full-stack job portal with PayPal subscriptions, wallet logic, secure APIs, and responsive frontend." },
-              { name: "NeuroRevive 360", desc: "Physiotherapy clinic website with appointment scheduling and REST APIs." },
-              { name: "Som Motor Records", desc: "Vehicle repair tracking with invoice generation and real-time data management." },
-            ].map((proj, i) => (
-              <div key={i} className="glass-card p-6 hover-lift">
-                <h3 className="font-semibold text-accent mb-2">{proj.name}</h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{proj.desc}</p>
-              </div>
-            ))}
           </div>
         </div>
 
@@ -269,8 +220,9 @@ export default function About() {
             </h2>
           </div>
           <div className="glass-card p-8 text-center">
+            <ChatBubbles className="w-64 max-w-full mx-auto mb-6" />
             <div className="flex flex-wrap justify-center gap-4">
-              {["Hindi (Native)", "English (B2)", "Deutsch (B1)", "Punjabi"].map((lang, i) => (
+              {["English (Professional, IELTS B2)", "German (B1)", "Hindi (Native)"].map((lang, i) => (
                 <span
                   key={i}
                   className="px-5 py-2 rounded-full bg-accent/10 text-accent text-sm font-medium border border-accent/20"
@@ -283,14 +235,15 @@ export default function About() {
         </div>
 
         {/* ===== CTA ===== */}
-        <div ref={ctaRef} className="reveal max-w-3xl mx-auto text-center">
+        <div ref={ctaRef} className="reveal max-w-3xl lg:max-w-6xl mx-auto text-center">
           <div className="relative glass-card p-12 overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-accent via-purple-400 to-pink-400" />
+            <Rocket className="w-32 mx-auto mb-4" />
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
               Let's Build Something Great
             </h2>
-            <p className="text-gray-500 dark:text-gray-400 mb-6">
-              I'm open to working student roles, internships, and full-time opportunities across Germany and Europe.
+            <p className="text-gray-500 dark:text-gray-400 mb-6 max-w-xl mx-auto">
+              I'm looking for a full-time Software Engineer role in Germany from February 2027. Open to Werkstudent roles until then.
             </p>
             <a
               href="/contact-me"

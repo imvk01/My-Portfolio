@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { FaExternalLinkAlt, FaGithub, FaLock } from "react-icons/fa";
 import { X } from "lucide-react";
 import Footer from "../components/Footer";
+import { Workspace } from "../components/Illustrations";
 
 function useReveal() {
   const ref = useRef(null);
@@ -127,7 +128,8 @@ export default function Projects() {
     <>
       <div className="min-h-screen bg-custom-background dark:bg-custom-background-dark pt-28 sm:pt-32 pb-16 px-6 lg:px-16">
         {/* HERO */}
-        <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-up">
+        <div className="max-w-6xl mx-auto mb-16 grid lg:grid-cols-2 gap-10 items-center animate-fade-up">
+          <div className="text-center lg:text-left">
           <span className="text-sm font-mono text-accent tracking-widest uppercase">
             Portfolio
           </span>
@@ -138,6 +140,8 @@ export default function Projects() {
             A collection of projects exploring full-stack development,
             real-world problem solving, and production deployments.
           </p>
+          </div>
+          <Workspace className="w-full max-w-md mx-auto" />
         </div>
 
         {/* PROJECT GRID */}

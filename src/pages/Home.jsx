@@ -7,16 +7,26 @@ import {
   FaEnvelope,
   FaUser,
 } from "react-icons/fa";
-import demoVideo from "./gallery/coding.mp4";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import PageWrapper from "../components/PageWrapper";
 import Footer from "../components/Footer";
-import { Code2, Server, Database, Shield, CreditCard, Cloud } from "lucide-react";
+import TechExpertise from "../components/TechExpertise";
+import { Rocket as RocketArt, BrowserThumb } from "../components/Illustrations";
+import { Code2, Lightbulb, PenTool, BrainCircuit, FlaskConical, Rocket } from "lucide-react";
 
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+
+const roadmap = [
+  { icon: Lightbulb, title: "Understand", desc: "Talk to stakeholders, map the problem, define what done means" },
+  { icon: PenTool, title: "Design", desc: "Sketch flows in Figma, plan the data model and API contracts" },
+  { icon: Code2, title: "Build", desc: "React + TypeScript frontends, Node.js APIs, RBAC and auth" },
+  { icon: BrainCircuit, title: "Add AI", desc: "LLMs and RAG with Vertex AI, Gemini and Claude where they help" },
+  { icon: FlaskConical, title: "Test & Review", desc: "Jest tests, Postman checks, peer-reviewed pull requests" },
+  { icon: Rocket, title: "Ship", desc: "CI/CD with GitHub Actions to AWS, Docker and Nginx, then iterate" },
+];
 
 function useReveal() {
   const ref = useRef(null);
@@ -60,42 +70,9 @@ export default function Home() {
 
   const skillsRef = useReveal();
   const projectsRef = useReveal();
-  const videoRef = useReveal();
+  const roadmapRef = useReveal();
   const testimonialsRef = useReveal();
   const ctaRef = useReveal();
-
-  const skills = [
-    {
-      title: "Frontend Development",
-      description: "React.js, TypeScript, Tailwind CSS, responsive and accessible UI",
-      icon: <Code2 className="w-6 h-6" />,
-    },
-    {
-      title: "Backend Development",
-      description: "Node.js, Express.js, REST & GraphQL APIs, microservices",
-      icon: <Server className="w-6 h-6" />,
-    },
-    {
-      title: "Database Design",
-      description: "MongoDB, PostgreSQL, schema optimization, data modeling",
-      icon: <Database className="w-6 h-6" />,
-    },
-    {
-      title: "Authentication & Security",
-      description: "JWT, OAuth 2.0, role-based access, secure API design",
-      icon: <Shield className="w-6 h-6" />,
-    },
-    {
-      title: "Payment Integration",
-      description: "Stripe, PayPal integration in production applications",
-      icon: <CreditCard className="w-6 h-6" />,
-    },
-    {
-      title: "Cloud & DevOps",
-      description: "AWS, Docker, CI/CD pipelines, Nginx, production deployment",
-      icon: <Cloud className="w-6 h-6" />,
-    },
-  ];
 
   const projects = [
     {
@@ -214,34 +191,10 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ===== SKILLS ===== */}
+        {/* ===== SKILLS & EXPERTISE ===== */}
         <section ref={skillsRef} className="reveal py-24 px-6 sm:px-10 lg:px-16">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <span className="text-sm font-mono text-accent tracking-widest uppercase">What I Do</span>
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mt-3">
-                Skills & Expertise
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 stagger-children">
-              {skills.map((item, index) => (
-                <div
-                  key={index}
-                  className="glass-card p-6 hover-lift group cursor-default"
-                >
-                  <div className="w-12 h-12 rounded-xl bg-accent/10 text-accent flex items-center justify-center mb-4 group-hover:bg-accent group-hover:text-white transition-all duration-300">
-                    {item.icon}
-                  </div>
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
-                    {item.description}
-                  </p>
-                </div>
-              ))}
-            </div>
+            <TechExpertise eyebrow="What I Do" title="Skills & Expertise" />
           </div>
         </section>
 
@@ -270,7 +223,10 @@ export default function Home() {
             >
               {projects.map((proj, idx) => (
                 <SwiperSlide key={idx} className="!h-auto">
-                  <div className="glass-card p-6 hover-lift w-full h-full flex flex-col">
+                  <div className="glass-card p-6 hover-lift w-full h-full flex flex-col group">
+                    <div className="-mx-2 -mt-2 mb-5 rounded-xl overflow-hidden border border-gray-200/60 dark:border-white/5">
+                      <BrowserThumb variant={idx} className="w-full h-auto block transition-transform duration-500 group-hover:scale-105" />
+                    </div>
                     <div className="flex-grow">
                       <h4 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">
                         {proj.name}
@@ -306,25 +262,82 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ===== VIDEO DEMO ===== */}
-        <section ref={videoRef} className="reveal py-24 px-6 sm:px-10 lg:px-16">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <span className="text-sm font-mono text-accent tracking-widest uppercase">In Action</span>
+        {/* ===== WORK ROADMAP ===== */}
+        <section ref={roadmapRef} className="reveal py-24 px-6 sm:px-10 lg:px-16">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <span className="text-sm font-mono text-accent tracking-widest uppercase">Roadmap</span>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mt-3">
-                How I look on Work
+                How I Work
               </h2>
+              <p className="text-gray-500 dark:text-gray-400 mt-4 max-w-2xl mx-auto">
+                From the first conversation to production, here's the path every feature takes.
+              </p>
             </div>
-            <div className="gradient-border">
-              <video
-                src={demoVideo}
-                controls
-                autoPlay
-                loop
-                muted
-                className="w-full rounded-2xl shadow-2xl shadow-accent/5"
-              />
+
+            {/* Desktop: winding road */}
+            <div className="hidden md:block">
+              <div className="relative h-40">
+                <svg
+                  className="absolute inset-0 w-full h-full"
+                  viewBox="0 0 1200 160"
+                  preserveAspectRatio="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M100 32 C 150 32, 150 128, 300 128 S 450 32, 500 32 S 650 128, 700 128 S 850 32, 900 32 S 1050 128, 1100 128"
+                    fill="none"
+                    className="stroke-accent/20"
+                    strokeWidth="14"
+                    strokeLinecap="round"
+                    vectorEffect="non-scaling-stroke"
+                  />
+                  <path
+                    d="M100 32 C 150 32, 150 128, 300 128 S 450 32, 500 32 S 650 128, 700 128 S 850 32, 900 32 S 1050 128, 1100 128"
+                    fill="none"
+                    className="stroke-accent"
+                    strokeWidth="2"
+                    strokeDasharray="8 8"
+                    strokeLinecap="round"
+                    vectorEffect="non-scaling-stroke"
+                  />
+                </svg>
+                <div className="relative grid grid-cols-6 h-full">
+                  {roadmap.map(({ icon: Icon, title }, i) => (
+                    <div key={title} className={`flex justify-center ${i % 2 ? "items-end" : "items-start"}`}>
+                      <div className="relative w-16 h-16 rounded-full bg-white dark:bg-surface border-2 border-accent flex items-center justify-center shadow-lg shadow-accent/20 hover:scale-110 transition-transform duration-300">
+                        <Icon className="w-7 h-7 text-accent" />
+                        <span className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-accent text-white text-xs font-bold flex items-center justify-center">
+                          {i + 1}
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="grid grid-cols-6 gap-4 mt-8">
+                {roadmap.map(({ title, desc }) => (
+                  <div key={title} className="text-center">
+                    <h3 className="font-semibold text-gray-900 dark:text-white mb-1">{title}</h3>
+                    <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{desc}</p>
+                  </div>
+                ))}
+              </div>
             </div>
+
+            {/* Mobile: vertical path */}
+            <ol className="md:hidden relative border-l-2 border-dashed border-accent/40 ml-8 space-y-8">
+              {roadmap.map(({ icon: Icon, title, desc }, i) => (
+                <li key={title} className="relative pl-10">
+                  <div className="absolute -left-7 top-0 w-12 h-12 rounded-full bg-white dark:bg-surface border-2 border-accent flex items-center justify-center shadow-lg shadow-accent/20">
+                    <Icon className="w-5 h-5 text-accent" />
+                  </div>
+                  <span className="text-xs font-mono text-accent">Step {i + 1}</span>
+                  <h3 className="font-semibold text-gray-900 dark:text-white">{title}</h3>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{desc}</p>
+                </li>
+              ))}
+            </ol>
           </div>
         </section>
 
@@ -344,7 +357,6 @@ export default function Home() {
                   key={idx}
                   className="glass-card p-8 hover-lift"
                 >
-                  <div className="text-3xl text-accent/30 mb-4 font-serif">"</div>
                   <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6 text-[15px]">
                     {t.feedback}
                   </p>
@@ -365,13 +377,14 @@ export default function Home() {
 
         {/* ===== CTA ===== */}
         <section ref={ctaRef} className="reveal py-24 px-6 sm:px-10 lg:px-16">
-          <div className="max-w-3xl mx-auto text-center">
+          <div className="max-w-3xl lg:max-w-6xl mx-auto text-center">
             <div className="relative glass-card p-12 sm:p-16 overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-accent via-purple-400 to-pink-400" />
+              <RocketArt className="w-32 mx-auto mb-4" />
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
                 Ready to Collaborate?
               </h2>
-              <p className="text-gray-500 dark:text-gray-400 mb-8 max-w-md mx-auto">
+              <p className="text-gray-500 dark:text-gray-400 mb-8 max-w-md lg:max-w-xl mx-auto">
                 Let's build something amazing together. I'm always open to new opportunities and interesting projects.
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-3">
